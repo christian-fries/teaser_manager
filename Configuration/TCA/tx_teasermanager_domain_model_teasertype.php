@@ -81,6 +81,7 @@ return [
 			    'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
                 'items' => [
+                    ['Title', 'title'],
                     ['Subtitle', 'subtitle'],
                     ['Link', 'link'],
                     ['Date', 'date'],

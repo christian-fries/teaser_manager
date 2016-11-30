@@ -29,28 +29,21 @@ module.tx_teasermanager {
 }
 
 lib.fluidContent.templateRootPaths.268 = EXT:teaser_manager/Resources/Private/Templates/
+lib.fluidContent.partialRootPaths.268 = EXT:teaser_manager/Resources/Private/Partials/
 
 tt_content.teasermanager_teaser < lib.fluidContent
 tt_content.teasermanager_teaser {
   templateName = Teaser.html
   dataProcessing {
-    #1 = CHF\TeaserManager\DataProcessing\TeaserProcessor
-    #1 {
-    #  useHere = theConfigurationOfTheDataProcessor
-    #}
-
-
-    10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-    10 {
-      table = tx_teasermanager_domain_model_teaser
-      selectFields = tx_teasermanager_domain_model_teaser.*
-      pidInList = 4
-      join = tx_teasermanager_ttcontent_teaser_mm ON tx_teasermanager_ttcontent_teaser_mm.uid_foreign = tx_teasermanager_domain_model_teaser.uid
-      where.data = field:uid
-      where.intval = 1
-      where.wrap = tx_teasermanager_ttcontent_teaser_mm.uid_local=|
-      orderBy = tx_teasermanager_ttcontent_teaser_mm.sorting_foreign
-      as = items
+    1 = CHF\TeaserManager\DataProcessing\TeaserProcessor
+    1 {
+      dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+          references.fieldName = image
+        }
+      }
     }
+
   }
 }
