@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-11-15T23:55:33Z" product-name="teaser_manager">
+		<header/>
+		<body>
+			<trans-unit id="tx_teasermanager_domain_model_teaser">
+				<source>Teaser</source>
+			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teaser.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teaser.subtitle">
+				<source>Subtitle</source>
+			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teaser.link">
+				<source>Link</source>
+			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teaser.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teaser.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teaser.icon">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teaser.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teaser.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teaser.type.choose">
+				<source>Please choose</source>
+			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teasertype">
+				<source>Teaser Type</source>
+			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teasertype.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teasertype.fields">
+				<source>Fields</source>
+			</trans-unit>
+			<trans-unit id="tt_content.teaser_type">
+				<source>Teaser Type</source>
+			</trans-unit>
+			<trans-unit id="tt_content.teaser_type.choose">
+				<source>Please choose</source>
+			</trans-unit>
+			<trans-unit id="tt_content.teaser_items">
+				<source>Teaser items</source>
+			</trans-unit>
+			<trans-unit id="tt_content.ce.title">
+				<source>Teaser</source>
+			</trans-unit>
+			<trans-unit id="tt_content.ce.description">
+				<source>Add teaser.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

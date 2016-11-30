@@ -1,0 +1,45 @@
+<T3DataStructure>
+    <meta type="array">
+        <langChildren>0</langChildren>
+        <langDisable>1</langDisable>
+    </meta>
+    <ROOT>
+        <type>array</type>
+        <el>
+            <settings.type>
+                <TCEforms>
+                    <label>LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:plugin.teaser.type</label>
+                    <onChange>reload</onChange>
+                    <config>
+                        <type>select</type>
+                        <renderType>selectSingle</renderType>
+                        <items type="array">
+                            <numIndex index="0" type="array">
+                                <numIndex index="0">LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.type.choose</numIndex>
+                                <numIndex index="1"></numIndex>
+                            </numIndex>
+                        </items>
+                        <foreign_table>tx_teasermanager_domain_model_teasertype</foreign_table>
+                        <minitems>1</minitems>
+                        <maxitems>1</maxitems>
+                        <eval>required</eval>
+                    </config>
+                </TCEforms>
+            </settings.type>
+            <settings.teaser>
+                <TCEforms>
+                    <label>LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:plugin.teaser.teaser</label>
+                    <displayCond>FIELD:settings.type:REQ:true</displayCond>
+                    <config>
+                        <type>select</type>
+                        <renderType>selectMultipleSideBySide</renderType>
+                        <foreign_table>tx_teasermanager_domain_model_teaser</foreign_table>
+                        <foreign_table_where>AND tx_teasermanager_domain_model_teaser.pid = '4'</foreign_table_where>
+                        <minitems>0</minitems>
+                        <maxitems>999</maxitems>
+                    </config>
+                </TCEforms>
+            </settings.teaser>
+        </el>
+    </ROOT>
+</T3DataStructure>

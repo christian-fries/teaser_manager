@@ -1,0 +1,2 @@
+# cat=basic/enable; type=int+; label=Global storage pid:Define a global pid where records are stored. If a pid is set, no pagetree will be shown in the backend module. NOTE: When you change this setting, you have to reload your backend.
+globalPid =
