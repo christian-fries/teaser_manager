@@ -1,0 +1,13 @@
+{
+	"name": "chf/teaser-manager",
+	"type": "typo3-cms-extension",
+	"description": "TYPO3 Teaser Manager",
+	"require": {
+		"typo3/cms": ">=7.6.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"CHF\\TeaserManager\\": "Classes"
+		}
+	}
+}
