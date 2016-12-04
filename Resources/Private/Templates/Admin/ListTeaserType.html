@@ -1,0 +1,48 @@
+{namespace bm=CHF\BackendModule\ViewHelpers}
+
+<f:layout name="Default" />
+
+<f:section name="headline">
+	<h1><f:translate key="teasertype.teasertypes">Teaser Types</f:translate></h1>
+</f:section>
+
+<f:section name="content">
+	<f:flashMessages />
+
+	<div class="panel panel-space panel-default recordlist">
+		<div class="panel-heading">
+			<f:translate key="teasertype.teasertypes">Teaser Types</f:translate>
+		</div>
+		<div class="table-fit">
+			<table class="table table-striped table-hover">
+				<thead>
+				<tr>
+					<th class="col-icon" width="35">
+						<bm:button.addRecord table="tx_teasermanager_domain_model_teasertype" pid="{storagePid}" returnUrl="{returnUrl}" />
+					</th>
+					<th><f:translate key="teasertype.title" /></th>
+					<th><f:translate key="teasertype.fields" /></th>
+					<th></th>
+				</tr>
+				</thead>
+				<tbody>
+				<f:for each="{teaserTypes}" as="teaserType">
+					<tr>
+						<td class="col-icon">
+							<bm:button.iconForRecord table="tx_teasermanager_domain_model_teasertype" uid="{teaserType.uid}" />
+						</td>
+						<td><bm:link.editRecord object="{teaserType}" table="tx_teasermanager_domain_model_teasertype" returnUrl="{returnUrl}">{teaserType.title}</bm:link.editRecord></td>
+						<td>{teaserType.fields}</td>
+						<td class="col-control">
+							<div class="btn-group" role="group">
+								<bm:button.editRecord object="{teaserType}" table="tx_teasermanager_domain_model_teasertype" returnUrl="{returnUrl}" />
+								<bm:button.removeRecord object="{teaserType}" table="tx_teasermanager_domain_model_teasertype" />
+							</div>
+						</td>
+					</tr>
+				</f:for>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</f:section>

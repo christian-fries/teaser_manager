@@ -27,9 +27,9 @@ class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * fields
      *
-     * @var int
+     * @var string
      */
-    protected $fields = 0;
+    protected $fields = '';
 
     /**
      * Returns the title
@@ -55,7 +55,7 @@ class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Returns the fields
      *
-     * @return int fields
+     * @return string fields
      */
     public function getFields()
     {
@@ -65,7 +65,7 @@ class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the fields
      *
-     * @param int $fields
+     * @param string $fields
      * @return void
      */
     public function setFields($fields)

@@ -12,7 +12,7 @@ namespace CHF\TeaserManager\Domain\Repository;
  *
  ***/
 
-class TeaserRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class TeaserTypeRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
 
 }
