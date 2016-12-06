@@ -48,6 +48,9 @@
 			<trans-unit id="teasertype.fields">
 				<source>Fields</source>
 			</trans-unit>
+			<trans-unit id="teasertype.new">
+				<source>Add new teaser type</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

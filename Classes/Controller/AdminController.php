@@ -81,7 +81,16 @@ class AdminController extends BackendModuleActionController
             $this->createNewRecordButton(
                 'tx_teasermanager_domain_model_teaser',
                 $this->getLanguageService()->sL('LLL:EXT:teaser_manager/Resources/Private/Language/locallang.xlf:teaser.new'),
-                'actions-document-new'
+                [
+                    'Admin' => ['listTeaser']
+                ]
+            ),
+            $this->createNewRecordButton(
+                'tx_teasermanager_domain_model_teasertype',
+                $this->getLanguageService()->sL('LLL:EXT:teaser_manager/Resources/Private/Language/locallang.xlf:teasertype.new'),
+                [
+                    'Admin' => ['listTeaserType']
+                ]
             )
         ]);
 
