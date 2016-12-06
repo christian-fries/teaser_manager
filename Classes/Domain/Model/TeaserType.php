@@ -63,6 +63,21 @@ class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * Returns the fields
+     *
+     * @return string fields
+     */
+    public function getFieldsList()
+    {
+        $fields = explode(',', $this->fields);
+        $fieldsArray = array_map(function($word) {
+            return ucwords($word);
+        }, $fields);
+
+        return implode(', ', $fieldsArray);
+    }
+
+    /**
      * Sets the fields
      *
      * @param string $fields
