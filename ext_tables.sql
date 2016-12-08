@@ -11,6 +11,7 @@ CREATE TABLE tx_teasermanager_domain_model_teaser (
 	link varchar(255) DEFAULT '' NOT NULL,
 	text text NOT NULL,
 	date int(11) DEFAULT '0' NOT NULL,
+	color int(11) unsigned DEFAULT '0' NOT NULL,
 	icon varchar(255) DEFAULT '' NOT NULL,
 	image int(11) unsigned NOT NULL default '0',
 	type varchar(255) DEFAULT '' NOT NULL,

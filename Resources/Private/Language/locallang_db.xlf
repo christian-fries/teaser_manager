@@ -21,6 +21,12 @@
 			<trans-unit id="tx_teasermanager_domain_model_teaser.date">
 				<source>Date</source>
 			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teaser.color">
+				<source>Color</source>
+			</trans-unit>
+			<trans-unit id="tx_teasermanager_domain_model_teaser.color.choose">
+				<source>Choose color</source>
+			</trans-unit>
 			<trans-unit id="tx_teasermanager_domain_model_teaser.icon">
 				<source>Icon</source>
 			</trans-unit>

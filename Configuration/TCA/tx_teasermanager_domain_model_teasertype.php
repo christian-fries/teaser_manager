@@ -1,4 +1,22 @@
 <?php
+
+$fieldItems = [
+    ['Title', 'title'],
+    ['Subtitle', 'subtitle'],
+    ['Link', 'link'],
+    ['Date', 'date'],
+    ['Text', 'text'],
+    ['Icon', 'icon'],
+    ['Image', 'image'],
+];
+
+// Add field 'color' if extension color_manager is loaded
+$colorManagerLoaded = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('color_manager');
+if ($colorManagerLoaded)
+{
+    $fieldItems[] = ['Color', 'color'];
+}
+
 return [
     'ctrl' => [
         'title'	=> 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teasertype',
@@ -34,15 +52,7 @@ return [
 	        'config' => [
 			    'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
-                'items' => [
-                    ['Title', 'title'],
-                    ['Subtitle', 'subtitle'],
-                    ['Link', 'link'],
-                    ['Date', 'date'],
-                    ['Text', 'text'],
-                    ['Icon', 'icon'],
-                    ['Image', 'image'],
-                ],
+                'items' => $fieldItems,
                 'size' => 10,
                 'minitems' => 1,
                 'maxitems' => 99,

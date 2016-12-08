@@ -24,10 +24,10 @@ return [
         'iconfile' => 'EXT:teaser_manager/Resources/Public/Icons/tx_teasermanager_domain_model_teaser.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, link, text, date, icon, image, type',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, link, text, date, color, icon, image, type',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, type, title, subtitle, link, text, date, icon, image, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, type, title, subtitle, link, text, date, color, icon, image, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -167,8 +167,26 @@ return [
 			    'checkbox' => 1,
 			    'default' => time()
 			],
-	        
 	    ],
+        'color' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.color',
+            'displayCond' => [
+                'AND' => [
+                    'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:color',
+                    'EXT:color_manager:LOADED:TRUE'
+                ]
+            ],
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'items' => [
+                    [ 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.color.choose', '' ]
+                ],
+                'foreign_table' => 'tx_colormanager_domain_model_color',
+                'default' => ''
+            ],
+        ],
 	    'icon' => [
 	        'exclude' => 1,
 	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.icon',
