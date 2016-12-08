@@ -1,14 +1,12 @@
 <?php
 defined('TYPO3_MODE') || die('Access denied.');
 
-// Load extension configuration
-$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['teaser_manager']);
-$navigationComponent = (!$extensionConfiguration['globalStoragePid']) ? 'typo3-pagetree' : '';
-
 call_user_func(
-    function($extKey, $navigationComponent)
+    function($extKey)
     {
-        $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['color_manager']);
+        // Load extension configuration
+        $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['teaser_manager']);
+        $navigationComponent = (!$settings['globalStoragePid']) ? 'typo3-pagetree' : '';
 
         if (TYPO3_MODE === 'BE') {
             if ($settings['showAdministrationModule']) {
@@ -39,6 +37,13 @@ call_user_func(
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_teasermanager_domain_model_teasertype', 'EXT:teaser_manager/Resources/Private/Language/locallang_csh_tx_teasermanager_domain_model_teasertype.xlf');
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_teasermanager_domain_model_teasertype');
 
+        if (!empty($settings['globalStoragePid']))
+        {
+            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(
+                'module.tx_teasermanager_web_teasermanageradmin.persistence.storagePid = ' . $settings['globalStoragePid'] . '
+                plugin.tx_teasermanager.persistence.storagePid = ' . $settings['globalStoragePid']
+            );
+        }
     },
-    $_EXTKEY, $navigationComponent
+    $_EXTKEY
 );

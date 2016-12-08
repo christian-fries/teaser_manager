@@ -43,9 +43,6 @@ class AdminController extends BackendModuleActionController
     {
         /** @var BackendTemplateView $view */
         parent::initializeView($view);
-        if ($view instanceof BackendTemplateView) {
-            $view->getModuleTemplate()->getPageRenderer()->loadRequireJsModule('TYPO3/CMS/Backend/Modal');
-        }
     }
 
     /**

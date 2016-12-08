@@ -21,8 +21,8 @@
 						<bm:button.addRecord table="tx_teasermanager_domain_model_teaser" pid="{storagePid}" returnUrl="{returnUrl}" />
 					</th>
 					<th><f:translate key="teaser.title" /></th>
-					<th><f:translate key="teaser.subtitle" /></th>
 					<th><f:translate key="teaser.type" /></th>
+					<th><f:translate key="teaser.subtitle" /></th>
 					<th></th>
 				</tr>
 				</thead>
@@ -33,9 +33,9 @@
 							<bm:button.iconForRecord table="tx_teasermanager_domain_model_teaser" uid="{teaser.uid}" />
 						</td>
 						<td><bm:link.editRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser" returnUrl="{returnUrl}">{teaser.title}</bm:link.editRecord></td>
-						<td>{teaser.subtitle}</td>
 						<td>{teaser.type.title}</td>
-						<td class="col-control">
+						<td>{teaser.subtitle}</td>
+						<td class="col-control" nowrap="nowrap">
 							<div class="btn-group" role="group">
 								<bm:button.editRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser" returnUrl="{returnUrl}" />
 								<bm:button.removeRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser" />

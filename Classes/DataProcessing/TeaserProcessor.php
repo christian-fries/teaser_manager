@@ -17,11 +17,17 @@ class TeaserProcessor implements DataProcessorInterface
     protected $contentDataProcessor;
 
     /**
+     * @var array
+     */
+    protected $extensionSettings;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->contentDataProcessor = GeneralUtility::makeInstance(ContentDataProcessor::class);
+        $this->extensionSettings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['teaser_manager']);
     }
 
     /**
@@ -43,7 +49,7 @@ class TeaserProcessor implements DataProcessorInterface
         // Attach teaser data
         $records = $cObj->getRecords('tx_teasermanager_domain_model_teaser', [
             'selectFields' => 'tx_teasermanager_domain_model_teaser.*',
-            'pidInList' => 4,
+            'pidInList' => $this->extensionSettings['globalStoragePid'],
             'join' => 'tx_teasermanager_ttcontent_teaser_mm ON tx_teasermanager_ttcontent_teaser_mm.uid_foreign = tx_teasermanager_domain_model_teaser.uid',
             'where.' => [
                 'data' => 'field:uid',
@@ -66,7 +72,7 @@ class TeaserProcessor implements DataProcessorInterface
         // Attach teaser type data
         $teaserTypeRecords = $cObj->getRecords('tx_teasermanager_domain_model_teasertype', [
             'selectFields' => 'tx_teasermanager_domain_model_teasertype.fields',
-            'pidInList' => 4,
+            'pidInList' => $this->extensionSettings['globalStoragePid'],
             'where.' => [
                 'data' => 'field:teaser_type',
                 'intval' => 1,
