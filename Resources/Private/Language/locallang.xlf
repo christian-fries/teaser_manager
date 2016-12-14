@@ -51,6 +51,12 @@
 			<trans-unit id="teasertype.new">
 				<source>Add new teaser type</source>
 			</trans-unit>
+			<trans-unit id="filter">
+				<source>Filter</source>
+			</trans-unit>
+			<trans-unit id="filter.type.all">
+				<source>All</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

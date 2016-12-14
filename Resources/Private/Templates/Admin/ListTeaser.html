@@ -9,6 +9,22 @@
 <f:section name="content">
 	<f:flashMessages />
 
+	<div class="panel panel-space panel-default">
+		<div class="panel-body">
+			<f:form action="listTeaser" object="{filter}" objectName="filter">
+				<div class="row">
+					<div class="col-xs-8 col-md-4">
+						<f:form.select property="type" options="{teaserTypes}" optionLabelField="title" prependOptionValue="0" prependOptionLabel="{f:translate(key: 'filter.type.all')}" class="form-control" />
+					</div>
+					<div class="col-xs-4 col-md-2">
+						<f:form.submit value="{f:translate(key: 'filter')}" class="btn btn-default" />
+					</div>
+				</div>
+
+			</f:form>
+		</div>
+	</div>
+
 	<div class="panel panel-space panel-default recordlist">
 		<div class="panel-heading">
 			<f:translate key="teaser.teasers">Teasers</f:translate>

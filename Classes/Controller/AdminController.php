@@ -3,7 +3,7 @@ namespace CHF\TeaserManager\Controller;
 
 /***
  *
- * This file is part of the "Teasertest" Extension for TYPO3 CMS.
+ * This file is part of the "Teaser Manager" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -13,6 +13,7 @@ namespace CHF\TeaserManager\Controller;
  ***/
 
 use CHF\BackendModule\Controller\BackendModuleActionController;
+use CHF\TeaserManager\Domain\Dto\Filter;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 
@@ -106,7 +107,6 @@ class AdminController extends BackendModuleActionController
     }
 
     /**
-     * @param CHF\TeaserManager\Domain\Model\Teaser
      * @return void
      */
     public function listTeaserTypeAction()
@@ -116,12 +116,25 @@ class AdminController extends BackendModuleActionController
     }
 
     /**
-     * @param CHF\TeaserManager\Domain\Model\Teaser
+     * @param CHF\TeaserManager\Domain\Dto\Filter $filter
      * @return void
      */
-    public function listTeaserAction()
+    public function listTeaserAction($filter = null)
     {
-        $teasers = $this->teaserRepository->findAll();
+        if ($filter === null) {
+            $filter = new Filter();
+        }
+        $this->view->assign('filter', $filter);
+
+        if ($filter->getType()) {
+            $teasers = $this->teaserRepository->findByType($filter->getType());
+        }
+        else {
+            $teasers = $this->teaserRepository->findAll();
+        }
         $this->view->assign('teasers', $teasers);
+
+        $teaserTypes = $this->teaserTypeRepository->findAll();
+        $this->view->assign('teaserTypes', $teaserTypes);
     }
 }
