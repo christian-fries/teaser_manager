@@ -1,18 +1,7 @@
 <div class="ce ce-teaser" id="c{data.uid}">
     <f:cObject data="{data}" typoscriptObjectPath="lib.stdheader" />
 
-    <f:for each="{teasers}" as="teaser">
-        <div class="teaser teaser-{teaser.uid} teaser-type-{teaser.type}">
-            <f:if condition="{teaserFields.link}">
-                <f:then>
-                    <f:link.typolink parameter="{teaser.link}" class="teaser-link">
-                        <f:render partial="Teaser/All.html" arguments="{teaser: teaser, teaserFields: teaserFields}" />
-                    </f:link.typolink>
-                </f:then>
-                <f:else>
-                    <f:render partial="Teaser/All.html" arguments="{teaser: teaser, teaserFields: teaserFields}" />
-                </f:else>
-            </f:if>
-        </div>
-    </f:for>
+    <f:switch expression="{data.teaser_type}">
+        <f:case default="true"><f:render partial="Teaser/All.html" arguments="{teasers: teasers, teaserFields: teaserFields}" /></f:case>
+    </f:switch>
 </div>

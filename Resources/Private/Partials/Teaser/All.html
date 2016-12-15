@@ -1,9 +1,21 @@
-<f:if condition="{teaserFields.image}">
-    <f:image image="{teaser.image}" />
-</f:if>
-<f:if condition="{teaserFields.title}">
-    <h3>{teaser.title}</h3>
-</f:if>
-<f:if condition="{teaserFields.subtitle}">
-    <h4>{teaser.subtitle}</h4>
-</f:if>
+<f:for each="{teasers}" as="teaser">
+    <div class="teaser teaser-{teaser.uid} teaser-type-{teaser.type}">
+        <f:link.typolink parameter="{teaser.link}" class="teaser-link">
+            <f:if condition="{teaserFields.image}">
+                <f:if condition="{teaser.image}">
+                    <f:image image="{teaser.image}" />
+                </f:if>
+            </f:if>
+            <f:if condition="{teaserFields.title}">
+                <h3>{teaser.title}</h3>
+            </f:if>
+            <f:if condition="{teaserFields.subtitle}">
+                <h4>{teaser.subtitle}</h4>
+            </f:if>
+            <f:if condition="{teaserFields.text}">
+                {teaser.text -> f:format.html()}
+            </f:if>
+        </f:link.typolink>
+    </div>
+</f:for>
+
