@@ -10,12 +10,9 @@ module.tx_teasermanager_web_teasermanageradmin {
   }
 }
 
-lib.fluidContent.templateRootPaths.268 = EXT:teaser_manager/Resources/Private/Templates/
-lib.fluidContent.partialRootPaths.268 = EXT:teaser_manager/Resources/Private/Partials/
-
-tt_content.teasermanager_teaser < lib.fluidContent
+tt_content.teasermanager_teaser =< lib.fluidContent
 tt_content.teasermanager_teaser {
-  templateName = Teaser/List.html
+  templateName = Teasers
   dataProcessing {
     1 = CHF\TeaserManager\DataProcessing\TeaserProcessor
     1 {
@@ -29,3 +26,6 @@ tt_content.teasermanager_teaser {
 
   }
 }
+
+lib.fluidContent.templateRootPaths.268 = EXT:teaser_manager/Resources/Private/Templates/
+lib.fluidContent.partialRootPaths.268 = EXT:teaser_manager/Resources/Private/Partials/
