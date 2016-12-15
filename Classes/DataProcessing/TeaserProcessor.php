@@ -46,9 +46,12 @@ class TeaserProcessor implements DataProcessorInterface
         array $processedData
     )
     {
+        $objectManager = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
+        $teaserRepository = $objectManager->get('CHF\TeaserManager\Domain\Repository\TeaserRepository');
+
         // Attach teaser data
         $records = $cObj->getRecords('tx_teasermanager_domain_model_teaser', [
-            'selectFields' => 'tx_teasermanager_domain_model_teaser.*',
+            'selectFields' => 'tx_teasermanager_domain_model_teaser.uid',
             'pidInList' => $this->extensionSettings['globalStoragePid'],
             'join' => 'tx_teasermanager_ttcontent_teaser_mm ON tx_teasermanager_ttcontent_teaser_mm.uid_foreign = tx_teasermanager_domain_model_teaser.uid',
             'where.' => [
@@ -58,16 +61,17 @@ class TeaserProcessor implements DataProcessorInterface
             ],
             'orderBy' => 'tx_teasermanager_ttcontent_teaser_mm.sorting'
         ]);
-        $processedRecordVariables = array();
+
+        $teasers = array();
         foreach ($records as $key => $record) {
             /** @var ContentObjectRenderer $recordContentObjectRenderer */
             $recordContentObjectRenderer = GeneralUtility::makeInstance(ContentObjectRenderer::class);
             $recordContentObjectRenderer->start($record, 'tx_teasermanager_domain_model_teaser');
-            $processedRecordVariables[$key] = array('data' => $record);
-            $processedRecordVariables[$key] = $this->contentDataProcessor->process($recordContentObjectRenderer, $processorConfiguration, $processedRecordVariables[$key]);
-        }
 
-        $processedData['teaserItems'] = $processedRecordVariables;
+            $teaser = $teaserRepository->findByUid($record['uid']);
+            $teasers[$key] = $teaser;
+        }
+        $processedData['teasers'] = $teasers;
 
         // Attach teaser type data
         $teaserTypeRecords = $cObj->getRecords('tx_teasermanager_domain_model_teasertype', [

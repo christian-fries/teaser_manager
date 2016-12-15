@@ -71,6 +71,14 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * type
      *
+     * @var \CHF\ColorManager\Domain\Model\Color
+     * @lazy
+     */
+    protected $color = null;
+
+    /**
+     * type
+     *
      * @var \CHF\TeaserManager\Domain\Model\TeaserType
      * @lazy
      */
@@ -243,4 +251,22 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->image = $image;
     }
+
+    /**
+     * @return \CHF\ColorManager\Domain\Model\Color
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * @param \CHF\ColorManager\Domain\Model\Color $color
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+    }
+
+
 }

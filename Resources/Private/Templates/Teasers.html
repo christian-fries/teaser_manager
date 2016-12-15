@@ -1,16 +1,16 @@
 <div class="ce ce-teaser" id="c{data.uid}">
     <f:cObject data="{data}" typoscriptObjectPath="lib.stdheader" />
 
-    <f:for each="{teaserItems}" as="item">
-        <div class="teaser teaser-{item.data.uid} teaser-type-{data.teaser_type}">
+    <f:for each="{teasers}" as="teaser">
+        <div class="teaser teaser-{teaser.uid} teaser-type-{teaser.type}">
             <f:if condition="{teaserFields.link}">
                 <f:then>
-                    <f:link.typolink parameter="{item.data.link}" class="teaser-link">
-                        <f:render partial="Teaser/All.html" arguments="{teaser: item.data, images: item.files, teaserFields: teaserFields}" />
+                    <f:link.typolink parameter="{teaser.link}" class="teaser-link">
+                        <f:render partial="Teaser/All.html" arguments="{teaser: teaser, teaserFields: teaserFields}" />
                     </f:link.typolink>
                 </f:then>
                 <f:else>
-                    <f:render partial="Teaser/All.html" arguments="{teaser: item.data, images: item.files, teaserFields: teaserFields}" />
+                    <f:render partial="Teaser/All.html" arguments="{teaser: teaser, teaserFields: teaserFields}" />
                 </f:else>
             </f:if>
         </div>
