@@ -35,6 +35,12 @@ class AdminController extends BackendModuleActionController
     protected $teaserRepository = null;
 
     /**
+     * @var \CHF\BackendModule\Domain\Session\BackendSession
+     * @inject
+     */
+    protected $backendSession = null;
+
+    /**
      * Set up the doc header properly here
      *
      * @param ViewInterface $view
@@ -57,6 +63,8 @@ class AdminController extends BackendModuleActionController
         $this->extKey = 'teaser_manager';
         $this->moduleName = 'web_TeaserManagerAdmin';
         $this->showConfigurationButton = true;
+
+        $this->backendSession->setStorageKey('teaser_manager');
 
         $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['teaser_manager']);
         $this->pageUid = intval($extConf['globalStoragePid']);
@@ -88,6 +96,10 @@ class AdminController extends BackendModuleActionController
                 $this->getLanguageService()->sL('LLL:EXT:teaser_manager/Resources/Private/Language/locallang.xlf:teasertype.new'),
                 [
                     'Admin' => ['listTeaserType']
+                ],
+                [
+                    'action' => 'listTeaserType',
+                    'controller' => 'Admin'
                 ]
             )
         ]);
@@ -121,8 +133,17 @@ class AdminController extends BackendModuleActionController
      */
     public function listTeaserAction($filter = null)
     {
+        // Add filtering to records
         if ($filter === null) {
-            $filter = new Filter();
+            // Get filter from session if available
+            $filter = $this->backendSession->get('filter');
+            if (!$filter instanceof Filter) {
+                // No filter available, create new one
+                $filter = new Filter();
+            }
+        }
+        else {
+            $this->backendSession->store('filter', $filter);
         }
         $this->view->assign('filter', $filter);
 
