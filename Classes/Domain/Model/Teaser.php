@@ -12,77 +12,83 @@ namespace CHF\TeaserManager\Domain\Model;
  *
  ***/
 
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 /**
  * Teaser
  */
 class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
-     * title
-     *
      * @var string
      * @validate NotEmpty
      */
     protected $title = '';
 
     /**
-     * subtitle
-     *
      * @var string
      */
     protected $subtitle = '';
 
     /**
-     * link
-     *
+     * @var string
+     */
+    protected $linkText = '';
+
+    /**
      * @var string
      */
     protected $link = '';
 
     /**
-     * text
-     *
      * @var string
      */
     protected $text = '';
 
     /**
-     * date
-     *
      * @var \DateTime
      */
     protected $date = null;
 
     /**
-     * icon
-     *
      * @var string
      */
     protected $icon = '';
 
     /**
-     * image
-     *
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
-     * @cascade remove
      */
     protected $image = null;
 
     /**
-     * type
-     *
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     */
+    protected $images = null;
+
+    /**
      * @var \CHF\ColorManager\Domain\Model\Color
      * @lazy
      */
     protected $color = null;
 
     /**
-     * type
-     *
      * @var \CHF\TeaserManager\Domain\Model\TeaserType
      * @lazy
      */
     protected $type = null;
+
+    /**
+     * Teaser constructor.
+     */
+    public function __construct()
+    {
+        $this->initializeObjectStorages();
+    }
+
+    public function initializeObjectStorages()
+    {
+        $this->images = new ObjectStorage();
+    }
 
     /**
      * Returns the title
@@ -124,6 +130,27 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setSubtitle($subtitle)
     {
         $this->subtitle = $subtitle;
+    }
+
+    /**
+     * Returns the link text
+     *
+     * @return string
+     */
+    public function getLinkText()
+    {
+        return $this->linkText;
+    }
+
+    /**
+     * Sets the link text
+     *
+     * @param string $linkText
+     * @return void
+     */
+    public function setLinkText($linkText)
+    {
+        $this->linkText = $linkText;
     }
 
     /**
@@ -253,6 +280,27 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
+     * Returns the images
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $images
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Sets the images
+     *
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $images
+     * @return void
+     */
+    public function setImages(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $images)
+    {
+        $this->images = $images;
+    }
+
+    /**
      * @return \CHF\ColorManager\Domain\Model\Color
      */
     public function getColor()
@@ -262,11 +310,10 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param \CHF\ColorManager\Domain\Model\Color $color
+     * @return void
      */
     public function setColor($color)
     {
         $this->color = $color;
     }
-
-
 }

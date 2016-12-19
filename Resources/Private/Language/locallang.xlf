@@ -15,6 +15,9 @@
 			<trans-unit id="teaser.subtitle">
 				<source>Subtitle</source>
 			</trans-unit>
+			<trans-unit id="teaser.link_text">
+				<source>Link text</source>
+			</trans-unit>
 			<trans-unit id="teaser.link">
 				<source>Link</source>
 			</trans-unit>
@@ -29,6 +32,12 @@
 			</trans-unit>
 			<trans-unit id="teaser.image">
 				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="teaser.images">
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="teaser.color">
+				<source>Color</source>
 			</trans-unit>
 			<trans-unit id="teaser.type">
 				<source>Type</source>

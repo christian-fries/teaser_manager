@@ -1,25 +1,27 @@
 <?php
 
 $fieldItems = [
-    ['Title', 'title'],
-    ['Subtitle', 'subtitle'],
-    ['Link', 'link'],
-    ['Date', 'date'],
-    ['Text', 'text'],
-    ['Icon', 'icon'],
-    ['Image', 'image'],
+    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.title', 'title'],
+    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.subtitle', 'subtitle'],
+    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.link', 'link'],
+    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.link_text', 'link_text'],
+    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.date', 'date'],
+    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.text', 'text'],
+    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.icon', 'icon'],
+    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.image', 'image'],
+    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.images', 'images'],
 ];
 
 // Add field 'color' if extension color_manager is loaded
 $colorManagerLoaded = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('color_manager');
 if ($colorManagerLoaded)
 {
-    $fieldItems[] = ['Color', 'color'];
+    $fieldItems[] = ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.color', 'color'];
 }
 
 return [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teasertype',
+        'title'	=> 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teasertype',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -38,7 +40,7 @@ return [
     'columns' => [
 	    'title' => [
 	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teasertype.title',
+	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teasertype.title',
 	        'config' => [
 			    'type' => 'input',
 			    'size' => 30,
@@ -48,7 +50,7 @@ return [
 	    ],
 	    'fields' => [
 	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teasertype.fields',
+	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teasertype.fields',
 	        'config' => [
 			    'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',

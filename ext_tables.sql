@@ -8,12 +8,14 @@ CREATE TABLE tx_teasermanager_domain_model_teaser (
 
 	title varchar(255) DEFAULT '' NOT NULL,
 	subtitle varchar(255) DEFAULT '' NOT NULL,
+	link_text varchar(255) DEFAULT '' NOT NULL,
 	link varchar(255) DEFAULT '' NOT NULL,
 	text text NOT NULL,
 	date int(11) DEFAULT '0' NOT NULL,
 	color int(11) unsigned DEFAULT '0' NOT NULL,
 	icon varchar(255) DEFAULT '' NOT NULL,
 	image int(11) unsigned NOT NULL default '0',
+	images int(11) unsigned NOT NULL default '0',
 	type varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,

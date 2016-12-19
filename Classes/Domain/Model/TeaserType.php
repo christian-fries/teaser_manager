@@ -71,7 +71,7 @@ class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $fields = explode(',', $this->fields);
         $fieldsArray = array_map(function($word) {
-            return ucwords($word);
+            return \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('teaser.' . $word, 'teaser_manager');
         }, $fields);
 
         return implode(', ', $fieldsArray);

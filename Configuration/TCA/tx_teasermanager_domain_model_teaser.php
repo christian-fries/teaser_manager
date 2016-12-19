@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser',
+        'title'	=> 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -24,10 +24,10 @@ return [
         'iconfile' => 'EXT:teaser_manager/Resources/Public/Icons/tx_teasermanager_domain_model_teaser.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, link, text, date, color, icon, image, type',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, link, link_text, text, date, color, icon, image, images, type',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, type, title, subtitle, link, text, date, color, icon, image, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'type, title, subtitle, link_text, link, text, date, color, icon, image, images, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -113,7 +113,7 @@ return [
 
 	    'title' => [
 	        'exclude' => 0,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.title',
+	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.title',
             'displayCond' => 'FIELD:type:REQ:true',
 	        'config' => [
 			    'type' => 'input',
@@ -124,7 +124,7 @@ return [
 	    ],
 	    'subtitle' => [
 	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.subtitle',
+	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.subtitle',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:subtitle',
 	        'config' => [
 			    'type' => 'input',
@@ -133,32 +133,55 @@ return [
 			],
 	        
 	    ],
+        'link_text' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.link_text',
+            'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:link_text',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+
+        ],
 	    'link' => [
 	        'exclude' => 0,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.link',
+	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.link',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:link',
 	        'config' => [
 			    'type' => 'input',
 			    'size' => 30,
-			    'eval' => 'trim'
+			    'eval' => 'trim',
+                'wizards' => [
+                    'link' => [
+                        'type' => 'popup',
+                        'title' => 'LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.link',
+                        'icon' => 'actions-wizard-link',
+                        'module' => [
+                            'name' => 'wizard_link',
+                        ],
+                        'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
+                    ]
+                ],
+                'softref' => 'typolink'
 			],
 	        
 	    ],
 	    'text' => [
 	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.text',
+	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.text',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:text',
 	        'config' => [
 			    'type' => 'text',
 			    'cols' => 40,
 			    'rows' => 15,
-			    'eval' => 'trim'
-			]
-	        
-	    ],
+			],
+            'defaultExtras' => 'richtext[]'
+
+        ],
 	    'date' => [
 	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.date',
+	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.date',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:date',
 	        'config' => [
 			    'type' => 'input',
@@ -170,7 +193,7 @@ return [
 	    ],
         'color' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.color',
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.color',
             'displayCond' => [
                 'AND' => [
                     'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:color',
@@ -181,7 +204,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    [ 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.color.choose', '' ]
+                    [ 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.color.choose', '' ]
                 ],
                 'foreign_table' => 'tx_colormanager_domain_model_color',
                 'default' => ''
@@ -189,7 +212,7 @@ return [
         ],
 	    'icon' => [
 	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.icon',
+	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.icon',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:icon',
 	        'config' => [
 			    'type' => 'input',
@@ -200,7 +223,7 @@ return [
 	    ],
 	    'image' => [
 	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.image',
+	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.image',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:image',
 	        'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
 			    'image',
@@ -246,14 +269,62 @@ return [
 			),
 	        
 	    ],
+	    'images' => [
+	        'exclude' => 1,
+	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.images',
+            'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:images',
+	        'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+			    'images',
+			    [
+			        'appearance' => [
+			            'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+			        ],
+			        'foreign_types' => [
+			            '0' => [
+			                'showitem' => '
+			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+			                --palette--;;filePalette'
+			            ],
+			            \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+			                'showitem' => '
+			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+			                --palette--;;filePalette'
+			            ],
+			            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+			                'showitem' => '
+			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+			                --palette--;;filePalette'
+			            ],
+			            \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
+			                'showitem' => '
+			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+			                --palette--;;filePalette'
+			            ],
+			            \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+			                'showitem' => '
+			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+			                --palette--;;filePalette'
+			            ],
+			            \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
+			                'showitem' => '
+			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+			                --palette--;;filePalette'
+			            ]
+			        ],
+			        'maxitems' => 999
+			    ],
+			    $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+			),
+
+	    ],
 	    'type' => [
 	        'exclude' => 0,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.type',
+	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.type',
 	        'config' => [
 			    'type' => 'select',
 			    'renderType' => 'selectSingle',
                 'items' => [
-                    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tx_teasermanager_domain_model_teaser.type.choose', '']
+                    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.type.choose', '']
                 ],
 			    'foreign_table' => 'tx_teasermanager_domain_model_teasertype',
 			    'minitems' => 1,

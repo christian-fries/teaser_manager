@@ -3,49 +3,55 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2016-11-15T23:55:33Z" product-name="teaser_manager">
 		<header/>
 		<body>
-			<trans-unit id="tx_teasermanager_domain_model_teaser">
+			<trans-unit id="teaser">
 				<source>Teaser</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teaser.title">
+			<trans-unit id="teaser.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teaser.subtitle">
+			<trans-unit id="teaser.subtitle">
 				<source>Subtitle</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teaser.link">
+			<trans-unit id="teaser.link_text">
+				<source>Link text</source>
+			</trans-unit>
+			<trans-unit id="teaser.link">
 				<source>Link</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teaser.text">
+			<trans-unit id="teaser.text">
 				<source>Text</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teaser.date">
+			<trans-unit id="teaser.date">
 				<source>Date</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teaser.color">
+			<trans-unit id="teaser.color">
 				<source>Color</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teaser.color.choose">
+			<trans-unit id="teaser.color.choose">
 				<source>Choose color</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teaser.icon">
+			<trans-unit id="teaser.icon">
 				<source>Icon</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teaser.image">
+			<trans-unit id="teaser.image">
 				<source>Image</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teaser.type">
+			<trans-unit id="teaser.images">
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="teaser.type">
 				<source>Type</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teaser.type.choose">
+			<trans-unit id="teaser.type.choose">
 				<source>Please choose</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teasertype">
+			<trans-unit id="teasertype">
 				<source>Teaser Type</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teasertype.title">
+			<trans-unit id="teasertype.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_teasermanager_domain_model_teasertype.fields">
+			<trans-unit id="teasertype.fields">
 				<source>Fields</source>
 			</trans-unit>
 			<trans-unit id="tt_content.teaser_type">
