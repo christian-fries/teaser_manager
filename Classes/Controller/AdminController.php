@@ -89,7 +89,7 @@ class AdminController extends BackendModuleActionController
         }
         $this->setMenuItems($menuItems);
 
-        $this->setButtons([
+        $buttons = [
             $this->createNewRecordButton(
                 'tx_teasermanager_domain_model_teaser',
                 $this->getLanguageService()->sL('LLL:EXT:teaser_manager/Resources/Private/Language/locallang.xlf:teaser.new'),
@@ -107,8 +107,10 @@ class AdminController extends BackendModuleActionController
                     'action' => 'listTeaserType',
                     'controller' => 'Admin'
                 ]
-            )
-        ]);
+            ),
+            $this->createClipboardButton('tx_teasermanager_domain_model_teaser')
+        ];
+        $this->setButtons($buttons);
 
         if ($this->pageUid == 0) {
             $message = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessage',

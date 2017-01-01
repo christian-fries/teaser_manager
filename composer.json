@@ -4,7 +4,7 @@
 	"description": "TYPO3 Teaser Manager",
 	"require": {
 		"typo3/cms": ">=7.6.0",
-		"chf/backend-module": ">=0.3"
+		"chf/backend-module": ">=0.4"
 
 	},
 	"autoload": {
