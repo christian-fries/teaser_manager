@@ -15,6 +15,7 @@ namespace CHF\TeaserManager\Controller;
 use CHF\BackendModule\Controller\BackendModuleActionController;
 use CHF\TeaserManager\Domain\Dto\Filter;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 
 /**
@@ -70,18 +71,23 @@ class AdminController extends BackendModuleActionController
         $this->pageUid = intval($extConf['globalStoragePid']);
 
         $this->setMenuIdentifier('teaserMenu');
-        $this->setMenuItems([
+
+        $menuItems = [
             [
-                'label' => 'Teasers',
+                'label' => $this->getLanguageService()->sL('LLL:EXT:teaser_manager/Resources/Private/Language/locallang.xlf:teaser.teasers'),
                 'action' => 'listTeaser',
                 'controller' => 'Admin'
-            ],
-            [
-                'label' => 'Teaser Types',
+            ]
+        ];
+
+        if (GeneralUtility::inList($this->getBackendUser()->groupData['tables_modify'], 'tx_teasermanager_domain_model_teasertype') || $this->getBackendUser()->isAdmin()) {
+            $menuItems[] = [
+                'label' => $this->getLanguageService()->sL('LLL:EXT:teaser_manager/Resources/Private/Language/locallang.xlf:teasertype.teasertypes'),
                 'action' => 'listTeaserType',
                 'controller' => 'Admin'
-            ]
-        ]);
+            ];
+        }
+        $this->setMenuItems($menuItems);
 
         $this->setButtons([
             $this->createNewRecordButton(
