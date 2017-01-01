@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-15T23:55:33Z" product-name="teaser_manager">
+		<header/>
+		<body>
+			<trans-unit id="teaser">
+				<source>Teaser</source>
+			</trans-unit>
+			<trans-unit id="teaser.teasers">
+				<source>Teasers</source>
+			</trans-unit>
+			<trans-unit id="teaser.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="teaser.subtitle">
+				<source>Subtitle</source>
+				<target>Untertitel</target>
+			</trans-unit>
+			<trans-unit id="teaser.link_text">
+				<source>Link text</source>
+			</trans-unit>
+			<trans-unit id="teaser.link">
+				<source>Link</source>
+			</trans-unit>
+			<trans-unit id="teaser.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="teaser.date">
+				<source>Date</source>
+				<target>Datum</target>
+			</trans-unit>
+			<trans-unit id="teaser.icon">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="teaser.image">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
+			<trans-unit id="teaser.images">
+				<source>Images</source>
+				<target>Bilder</target>
+			</trans-unit>
+			<trans-unit id="teaser.color">
+				<source>Color</source>
+				<target>Farbe</target>
+			</trans-unit>
+			<trans-unit id="teaser.type">
+				<source>Type</source>
+				<target>Typ</target>
+			</trans-unit>
+			<trans-unit id="teaser.new">
+				<source>Add new teaser</source>
+				<target>Neuen Teaser hinzufügen</target>
+			</trans-unit>
+			<trans-unit id="teasertype">
+				<source>Teaser Type</source>
+				<target>Teasertyp</target>
+			</trans-unit>
+			<trans-unit id="teasertype.teasertypes">
+				<source>Teaser Types</source>
+				<target>Teasertypen</target>
+			</trans-unit>
+			<trans-unit id="teasertype.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="teasertype.fields">
+				<source>Fields</source>
+				<target>Felder</target>
+			</trans-unit>
+			<trans-unit id="teasertype.new">
+				<source>Add new teaser type</source>
+				<target>Teasertyp hinzufügen</target>
+			</trans-unit>
+			<trans-unit id="filter">
+				<source>Filter</source>
+			</trans-unit>
+			<trans-unit id="filter.type.all">
+				<source>All</source>
+				<target>Alle</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-11-15T23:55:33Z" product-name="teaser_manager">
+		<header/>
+		<body>
+			<trans-unit id="teaser">
+				<source>Teaser</source>
+			</trans-unit>
+			<trans-unit id="teaser.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="teaser.subtitle">
+				<source>Subtitle</source>
+				<target>Untertitel</target>
+			</trans-unit>
+			<trans-unit id="teaser.link_text">
+				<source>Link text</source>
+			</trans-unit>
+			<trans-unit id="teaser.link">
+				<source>Link</source>
+			</trans-unit>
+			<trans-unit id="teaser.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="teaser.date">
+				<source>Date</source>
+				<target>Datum</target>
+			</trans-unit>
+			<trans-unit id="teaser.color">
+				<source>Color</source>
+				<target>Farbe</target>
+			</trans-unit>
+			<trans-unit id="teaser.color.choose">
+				<source>Choose color</source>
+				<target>Farbe wählen</target>
+			</trans-unit>
+			<trans-unit id="teaser.icon">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="teaser.image">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
+			<trans-unit id="teaser.images">
+				<source>Images</source>
+				<target>Bilder</target>
+			</trans-unit>
+			<trans-unit id="teaser.type">
+				<source>Type</source>
+				<target>Typ</target>
+			</trans-unit>
+			<trans-unit id="teaser.type.choose">
+				<source>Please choose</source>
+				<target>Bitte wählen</target>
+			</trans-unit>
+			<trans-unit id="teasertype">
+				<source>Teaser Type</source>
+				<target>Teasertyp</target>
+			</trans-unit>
+			<trans-unit id="teasertype.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="teasertype.fields">
+				<source>Fields</source>
+				<target>Felder</target>
+			</trans-unit>
+			<trans-unit id="tt_content.teaser_type">
+				<source>Teaser Type</source>
+				<target>Teasertyp</target>
+			</trans-unit>
+			<trans-unit id="tt_content.teaser_type.choose">
+				<source>Please choose</source>
+				<target>Bitte wählen</target>
+			</trans-unit>
+			<trans-unit id="tt_content.teaser_items">
+				<source>Teaser items</source>
+				<target>Teaser</target>
+			</trans-unit>
+			<trans-unit id="tt_content.ce.title">
+				<source>Teaser</source>
+			</trans-unit>
+			<trans-unit id="tt_content.ce.description">
+				<source>Add teaser.</source>
+				<target>Teaser einfügen.</target>
+			</trans-unit>
+			<trans-unit id="extmng.subcategory.storage">
+				<source>Storage</source>
+				<target>Speicher</target>
+			</trans-unit>
+			<trans-unit id="extmng.globalStoragePid">
+				<source>Global storage pid:Define a global pid where records are stored. If a pid is set, no pagetree will be shown in the backend module. NOTE: When you change this setting, you have to reload your backend.</source>
+				<target>Globale Speicher Pid:Definiert systemweit, wo die Records gespeichert werden sollen. Wird eine Pid definiert, wird der Seitenbaum im Backend Modul ausgeblendet. HINWEIS: Das Backend muss nach dem Ändern dieser Einstellung neu geladen werden.</target>
+			</trans-unit>
+			<trans-unit id="extmng.showAdministrationModule">
+				<source>Show administration module</source>
+				<target>Administrationsmodul anzeigen</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
