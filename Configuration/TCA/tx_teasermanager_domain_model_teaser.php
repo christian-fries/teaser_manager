@@ -299,6 +299,7 @@ return [
 	    'type' => [
 	        'exclude' => 0,
 	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.type',
+            'onChange' => 'reload',
 	        'config' => [
 			    'type' => 'select',
 			    'renderType' => 'selectSingle',
@@ -309,7 +310,6 @@ return [
 			    'minitems' => 1,
 			    'maxitems' => 1,
                 'eval' => 'required',
-                'onChange' => 'reload'
 			],
 	    ],
         
