@@ -7,9 +7,7 @@ return [
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
         'dividers2tabs' => 1,
-		'versioningWS' => 2,
-        'versioning_followPages' => true,
-        'requestUpdate' => 'type',
+		'versioningWS' => true,
 
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -24,10 +22,10 @@ return [
         'iconfile' => 'EXT:teaser_manager/Resources/Public/Icons/tx_teasermanager_domain_model_teaser.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, link, link_text, text, date, color, icon, image, images, type',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, link, link_text, text, date, icon, image, images, type',
     ],
     'types' => [
-        '1' => ['showitem' => 'type, title, subtitle, link_text, link, text, date, color, icon, image, images, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'type, title, subtitle, link_text, link, text, date, icon, image, images, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -63,7 +61,6 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'max' => 255,
             ],
         ],
         'hidden' => [
@@ -80,34 +77,36 @@ return [
         ],
         'starttime' => [
             'exclude' => 1,
-            'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'input',
                 'size' => 13,
-                'max' => 20,
                 'eval' => 'datetime',
                 'checkbox' => 0,
                 'default' => 0,
                 'range' => [
                     'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
                 ],
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true
+                ]
             ],
         ],
         'endtime' => [
             'exclude' => 1,
-            'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'input',
                 'size' => 13,
-                'max' => 20,
                 'eval' => 'datetime',
                 'checkbox' => 0,
                 'default' => 0,
                 'range' => [
                     'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
                 ],
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true
+                ]
             ],
         ],
 
@@ -149,21 +148,19 @@ return [
 	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.link',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:link',
 	        'config' => [
-			    'type' => 'input',
-			    'size' => 30,
 			    'eval' => 'trim',
-                'wizards' => [
-                    'link' => [
-                        'type' => 'popup',
-                        'title' => 'LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.link',
-                        'icon' => 'actions-wizard-link',
-                        'module' => [
-                            'name' => 'wizard_link',
-                        ],
-                        'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
+			    'type' => 'input',
+                'renderType' => 'inputLink',
+                'softref' => 'typolink',
+			    'size' => 30,
+                'fieldControl' => [
+                    'linkPopup' => [
+                        'options' => [
+                            'title' => 'LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.link',
+                            'windowOpenParameters' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
+                        ]
                     ]
-                ],
-                'softref' => 'typolink'
+                ]
 			],
 	        
 	    ],
@@ -171,13 +168,14 @@ return [
 	        'exclude' => 1,
 	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.text',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:text',
-	        'config' => [
-			    'type' => 'text',
-			    'cols' => 40,
-			    'rows' => 15,
-			],
-            'defaultExtras' => 'richtext[]'
-
+            'config' => [
+                'cols' => 40,
+                'enableRichtext' => 1,
+                'eval' => 'trim',
+                'richtextConfiguration' => 'default',
+                'rows' => 15,
+                'type' => 'text',
+            ],
         ],
 	    'date' => [
 	        'exclude' => 1,
@@ -191,25 +189,6 @@ return [
 			    'default' => time()
 			],
 	    ],
-        'color' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.color',
-            'displayCond' => [
-                'AND' => [
-                    'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:color',
-                    'EXT:color_manager:LOADED:TRUE'
-                ]
-            ],
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [ 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.color.choose', '' ]
-                ],
-                'foreign_table' => 'tx_colormanager_domain_model_color',
-                'default' => ''
-            ],
-        ],
 	    'icon' => [
 	        'exclude' => 1,
 	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.icon',
@@ -329,7 +308,8 @@ return [
 			    'foreign_table' => 'tx_teasermanager_domain_model_teasertype',
 			    'minitems' => 1,
 			    'maxitems' => 1,
-                'eval' => 'required'
+                'eval' => 'required',
+                'onChange' => 'reload'
 			],
 	    ],
         

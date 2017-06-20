@@ -66,6 +66,10 @@
 			<trans-unit id="filter.type.all">
 				<source>All</source>
 			</trans-unit>
+
+			<trans-unit id="administration.toggleForm">
+				<source>Toggle filter</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

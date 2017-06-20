@@ -14,7 +14,11 @@ namespace CHF\TeaserManager\Controller;
 
 use CHF\BackendModule\Controller\BackendModuleActionController;
 use CHF\TeaserManager\Domain\Dto\Filter;
+use TYPO3\CMS\Backend\Template\Components\ButtonBar;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
+use TYPO3\CMS\Core\Imaging\Icon;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Messaging\FlashMessageService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 
@@ -51,6 +55,22 @@ class AdminController extends BackendModuleActionController
     {
         /** @var BackendTemplateView $view */
         parent::initializeView($view);
+
+        $this->pageRenderer->loadRequireJsModule('TYPO3/CMS/TeaserManager/AdministrationModule');
+
+        $buttonBar = $this->view->getModuleTemplate()->getDocHeaderComponent()->getButtonBar();
+        $toggleButton = $buttonBar->makeLinkButton()
+            ->setHref('#')
+            ->setDataAttributes([
+                'togglelink' => '1',
+                'toggle' => 'tooltip',
+                'placement' => 'bottom',
+            ])
+            ->setTitle($this->getLanguageService()->sL('LLL:EXT:teaser_manager/Resources/Private/Language/locallang.xlf:administration.toggleForm'))
+            ->setIcon($this->iconFactory->getIcon('actions-filter', Icon::SIZE_SMALL));
+        if ($this->actionMethodName == 'listTeaserAction') {
+            $buttonBar->addButton($toggleButton, ButtonBar::BUTTON_POSITION_LEFT, -1);
+        }
     }
 
     /**
@@ -113,14 +133,14 @@ class AdminController extends BackendModuleActionController
         $this->setButtons($buttons);
 
         if ($this->pageUid == 0) {
-            $message = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
+            $message = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
                 $this->getLanguageService()->sL('LLL:EXT:color_manager/Resources/Private/Language/locallang.xlf:configuration.pid.description'),
                 $this->getLanguageService()->sL('LLL:EXT:color_manager/Resources/Private/Language/locallang.xlf:configuration.pid.title'),
-                \TYPO3\CMS\Core\Messaging\FlashMessage::WARNING,
+                FlashMessage::WARNING,
                 TRUE
             );
 
-            $flashMessageService = $this->objectManager->get(\TYPO3\CMS\Core\Messaging\FlashMessageService::class);
+            $flashMessageService = $this->objectManager->get(FlashMessageService::class);
             $messageQueue = $flashMessageService->getMessageQueueByIdentifier();
             $messageQueue->addMessage($message);
         }

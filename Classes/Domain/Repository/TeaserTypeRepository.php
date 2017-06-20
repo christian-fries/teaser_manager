@@ -1,6 +1,8 @@
 <?php
 namespace CHF\TeaserManager\Domain\Repository;
 
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+
 /***
  *
  * This file is part of the "Teaser Manager" Extension for TYPO3 CMS.
@@ -14,5 +16,7 @@ namespace CHF\TeaserManager\Domain\Repository;
 
 class TeaserTypeRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-
+    protected $defaultOrderings = array(
+        'title' => QueryInterface::ORDER_ASCENDING
+    );
 }
