@@ -96,6 +96,7 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('color_manager'
         'color' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.color',
+            'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:color',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
