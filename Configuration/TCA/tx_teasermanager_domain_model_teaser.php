@@ -143,27 +143,28 @@ return [
             ],
 
         ],
-	    'link' => [
-	        'exclude' => 0,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.link',
+        'link' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.link',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:link',
-	        'config' => [
-			    'eval' => 'trim',
-			    'type' => 'input',
-                'renderType' => 'inputLink',
-                'softref' => 'typolink',
-			    'size' => 30,
-                'fieldControl' => [
-                    'linkPopup' => [
-                        'options' => [
-                            'title' => 'LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.link',
-                            'windowOpenParameters' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
-                        ]
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+                'wizards' => [
+                    'link' => [
+                        'type' => 'popup',
+                        'title' => 'LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.link',
+                        'icon' => 'actions-wizard-link',
+                        'module' => [
+                            'name' => 'wizard_link',
+                        ],
+                        'JSopenParams' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
                     ]
-                ]
-			],
-	        
-	    ],
+                ],
+                'softref' => 'typolink'
+            ],
+        ],
 	    'text' => [
 	        'exclude' => 1,
 	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.text',

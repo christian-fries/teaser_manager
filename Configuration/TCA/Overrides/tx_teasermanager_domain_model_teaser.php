@@ -2,9 +2,22 @@
 
 // Define TCA modifications only for TYPO3 8+ instances
 if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 8007000) {
+    // DateTime render type
     $GLOBALS['TCA']['tx_teasermanager_domain_model_teaser']['columns']['starttime']['config']['renderType'] = 'inputDateTime';
     $GLOBALS['TCA']['tx_teasermanager_domain_model_teaser']['columns']['endtime']['config']['renderType'] = 'inputDateTime';
     $GLOBALS['TCA']['tx_teasermanager_domain_model_teaser']['columns']['date']['config']['renderType'] = 'inputDateTime';
+
+    // Link render type
+    $GLOBALS['TCA']['tx_teasermanager_domain_model_teaser']['columns']['link']['config']['renderType'] = 'inputLink';
+    $GLOBALS['TCA']['tx_teasermanager_domain_model_teaser']['columns']['link']['config']['wizards'] = [];
+    $GLOBALS['TCA']['tx_teasermanager_domain_model_teaser']['columns']['link']['config']['fieldControl'] = [
+        'linkPopup' => [
+            'options' => [
+                'title' => 'LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.link',
+                'windowOpenParameters' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
+            ]
+        ]
+    ];
 
     // Add correct file palette to images field
     $GLOBALS['TCA']['tx_teasermanager_domain_model_teaser']['columns']['images']['config'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('images',
