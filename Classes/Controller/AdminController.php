@@ -57,20 +57,6 @@ class AdminController extends BackendModuleActionController
         parent::initializeView($view);
 
         $this->pageRenderer->loadRequireJsModule('TYPO3/CMS/TeaserManager/AdministrationModule');
-
-        $buttonBar = $this->view->getModuleTemplate()->getDocHeaderComponent()->getButtonBar();
-        $toggleButton = $buttonBar->makeLinkButton()
-            ->setHref('#')
-            ->setDataAttributes([
-                'togglelink' => '1',
-                'toggle' => 'tooltip',
-                'placement' => 'bottom',
-            ])
-            ->setTitle($this->getLanguageService()->sL('LLL:EXT:teaser_manager/Resources/Private/Language/locallang.xlf:administration.toggleForm'))
-            ->setIcon($this->iconFactory->getIcon('actions-filter', Icon::SIZE_SMALL));
-        if ($this->actionMethodName == 'listTeaserAction') {
-            $buttonBar->addButton($toggleButton, ButtonBar::BUTTON_POSITION_LEFT, -1);
-        }
     }
 
     /**
@@ -79,8 +65,7 @@ class AdminController extends BackendModuleActionController
      * @return void
      */
     public function initializeAction() {
-        parent::initializeAction();
-
+        // Initialize configuration
         $this->extKey = 'teaser_manager';
         $this->moduleName = 'web_TeaserManagerAdmin';
         $this->showConfigurationButton = true;
@@ -90,8 +75,10 @@ class AdminController extends BackendModuleActionController
         $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['teaser_manager']);
         $this->pageUid = intval($extConf['globalStoragePid']);
 
-        $this->setMenuIdentifier('teaserMenu');
+        parent::initializeAction();
 
+        // Define menu items
+        $this->setMenuIdentifier('teaserMenu');
         $menuItems = [
             [
                 'label' => $this->getLanguageService()->sL('LLL:EXT:teaser_manager/Resources/Private/Language/locallang.xlf:teaser.teasers'),
@@ -109,10 +96,23 @@ class AdminController extends BackendModuleActionController
         }
         $this->setMenuItems($menuItems);
 
+        // Define toolbar buttons
         $buttons = [
             $this->createNewRecordButton(
                 'tx_teasermanager_domain_model_teaser',
                 $this->getLanguageService()->sL('LLL:EXT:teaser_manager/Resources/Private/Language/locallang.xlf:teaser.new'),
+                [
+                    'Admin' => ['listTeaser']
+                ]
+            ),
+            $this->createJsButton(
+                $this->getLanguageService()->sL('LLL:EXT:teaser_manager/Resources/Private/Language/locallang.xlf:administration.toggleForm'),
+                $this->iconFactory->getIcon('actions-filter', Icon::SIZE_SMALL),
+                [
+                    'togglelink' => '1',
+                    'toggle' => 'tooltip',
+                    'placement' => 'bottom',
+                ],
                 [
                     'Admin' => ['listTeaser']
                 ]
@@ -131,19 +131,6 @@ class AdminController extends BackendModuleActionController
             $this->createClipboardButton('tx_teasermanager_domain_model_teaser')
         ];
         $this->setButtons($buttons);
-
-        if ($this->pageUid == 0) {
-            $message = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Messaging\\FlashMessage',
-                $this->getLanguageService()->sL('LLL:EXT:color_manager/Resources/Private/Language/locallang.xlf:configuration.pid.description'),
-                $this->getLanguageService()->sL('LLL:EXT:color_manager/Resources/Private/Language/locallang.xlf:configuration.pid.title'),
-                FlashMessage::WARNING,
-                TRUE
-            );
-
-            $flashMessageService = $this->objectManager->get(FlashMessageService::class);
-            $messageQueue = $flashMessageService->getMessageQueueByIdentifier();
-            $messageQueue->addMessage($message);
-        }
     }
 
     /**
