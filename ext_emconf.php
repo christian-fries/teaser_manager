@@ -8,11 +8,11 @@ $EM_CONF[$_EXTKEY] = [
     'author_email' => 'hallo@christian-fries.ch',
     'state' => 'stable',
     'clearCacheOnLoad' => 1,
-    'version' => '0.2.3',
+    'version' => '0.2.4',
     'constraints' => [
         'depends' => [
             'typo3' => '7.6.0-8.7.99',
-            'backend_module' => '0.7.1-0.99.99',
+            'backend_module' => '0.7.3-0.99.99',
         ],
         'conflicts' => [],
         'suggests' => [],
