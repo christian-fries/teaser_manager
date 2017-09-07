@@ -19,4 +19,33 @@ class TeaserTypeRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     protected $defaultOrderings = array(
         'title' => QueryInterface::ORDER_ASCENDING
     );
+
+    /**
+     * Initialize Object with predefined settings
+     *
+     * @return void
+     */
+    public function initializeObject()
+    {
+        $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+        $querySettings->setRespectStoragePage(FALSE);
+        $this->setDefaultQuerySettings($querySettings);
+    }
+
+    /**
+     * @param string $mode
+     * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
+    public function findAll($mode = 'Frontend') {
+        $query = $this->createQuery();
+
+        if($mode == 'Backend') {
+            $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+            $querySettings->setIgnoreEnableFields(TRUE);
+            $querySettings->setRespectStoragePage(FALSE);
+            $query->setQuerySettings($querySettings);
+        }
+
+        return $query->execute();
+    }
 }

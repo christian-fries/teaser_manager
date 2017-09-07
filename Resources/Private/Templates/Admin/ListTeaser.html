@@ -1,63 +1,81 @@
 {namespace bm=CHF\BackendModule\ViewHelpers}
 
-<f:layout name="Backend" />
+<f:layout name="Backend"/>
 
 <f:section name="headline">
-	<h1><f:translate key="teaser.teasers">Teasers</f:translate></h1>
+    <h1>
+        <f:translate key="teaser.teasers">Teasers</f:translate>
+    </h1>
 </f:section>
 
 <f:section name="content">
-	<f:flashMessages />
+    <f:flashMessages/>
 
-	<div class="panel panel-space panel-default" id="filter-container" style="display: none;">
-		<div class="panel-body">
-			<f:form action="listTeaser" object="{filter}" objectName="filter">
-				<div class="row">
-					<div class="col-xs-8 col-md-4">
-						<f:form.select property="type" options="{teaserTypes}" optionLabelField="title" prependOptionValue="0" prependOptionLabel="{f:translate(key: 'filter.type.all')}" class="form-control" />
-					</div>
-					<div class="col-xs-4 col-md-2">
-						<f:form.submit value="{f:translate(key: 'filter')}" class="btn btn-default" />
-					</div>
-				</div>
-			</f:form>
-		</div>
-	</div>
+    <div class="panel panel-space panel-default" id="filter-container" style="display: none;">
+        <div class="panel-body">
+            <f:form action="listTeaser" object="{filter}" objectName="filter">
+                <div class="row">
+                    <div class="col-xs-8 col-md-4">
+                        <f:form.select property="type" options="{teaserTypes}" optionLabelField="title"
+                                       prependOptionValue="0" prependOptionLabel="{f:translate(key: 'filter.type.all')}"
+                                       class="form-control"/>
+                    </div>
+                    <div class="col-xs-4 col-md-2">
+                        <f:form.submit value="{f:translate(key: 'filter')}" class="btn btn-default"/>
+                    </div>
+                </div>
+            </f:form>
+        </div>
+    </div>
 
-	<div class="panel panel-space panel-default recordlist">
-		<div class="panel-heading">
-			<f:translate key="teaser.teasers">Teasers</f:translate>
-		</div>
-		<div class="table-fit">
-			<table class="table table-striped table-hover">
-				<thead>
-				<tr>
-					<th class="col-icon" width="35">
-						<bm:button.addRecord table="tx_teasermanager_domain_model_teaser" pid="{storagePid}" returnUrl="{returnUrl}" />
-					</th>
-					<th><f:translate key="teaser.title" /></th>
-					<th><f:translate key="teaser.type" /></th>
-					<th></th>
-				</tr>
-				</thead>
-				<tbody>
-				<f:for each="{teasers}" as="teaser">
-					<tr>
-						<td class="col-icon">
-							<bm:button.iconForRecord table="tx_teasermanager_domain_model_teaser" uid="{teaser.uid}" />
-						</td>
-						<td><bm:link.editRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser" returnUrl="{returnUrl}">{teaser.title}</bm:link.editRecord></td>
-						<td>{teaser.type.title}</td>
-						<td class="col-control" nowrap="nowrap">
-							<div class="btn-group" role="group">
-								<bm:button.editRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser" returnUrl="{returnUrl}" />
-								<bm:button.removeRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser" />
-							</div>
-						</td>
-					</tr>
-				</f:for>
-				</tbody>
-			</table>
-		</div>
-	</div>
+    <div class="panel panel-space panel-default recordlist">
+        <div class="panel-heading">
+            <f:translate key="teaser.teasers">Teasers</f:translate>
+        </div>
+        <div class="table-fit">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th class="col-icon" width="35">
+                        <bm:button.addRecord table="tx_teasermanager_domain_model_teaser" pid="{storagePid}"
+                                             returnUrl="{returnUrl}"/>
+                    </th>
+                    <th>
+                        <f:translate key="teaser.title"/>
+                    </th>
+                    <th>
+                        <f:translate key="teaser.type"/>
+                    </th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <f:for each="{teasers}" as="teaser" iteration="iterator">
+                    <tr class="t3js-entity{f:if(condition:iterator.isFirst, then:' firstcol', else:'')}"
+                        data-table="tx_teasermanager_domain_model_teaser" data-uid="{teaser.uid}">
+                        <td class="col-icon">
+                            <bm:button.iconForRecord table="tx_teasermanager_domain_model_teaser" uid="{teaser.uid}"/>
+                        </td>
+                        <td>
+                            <bm:link.editRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser"
+                                                returnUrl="{returnUrl}">{teaser.title}
+                            </bm:link.editRecord>
+                        </td>
+                        <td>{teaser.type.title}</td>
+                        <td class="col-control" nowrap="nowrap">
+                            <div class="btn-group" role="group">
+                                <bm:button.editRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser"
+                                                      returnUrl="{returnUrl}"/>
+                                <bm:button.disableRecord object="{teaser}"
+                                                         table="tx_teasermanager_domain_model_teaser"
+                                                         returnUrl="{returnUrl}"/>
+                                <bm:button.removeRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser"/>
+                            </div>
+                        </td>
+                    </tr>
+                </f:for>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </f:section>

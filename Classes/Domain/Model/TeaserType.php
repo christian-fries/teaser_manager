@@ -25,6 +25,11 @@ class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $title = '';
 
     /**
+     * @var int
+     */
+    protected $hidden = 0;
+
+    /**
      * fields
      *
      * @var string
@@ -50,6 +55,23 @@ class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHidden()
+    {
+        return $this->hidden;
+    }
+
+    /**
+     * @param int $hidden
+     * @return void
+     */
+    public function setHidden($hidden)
+    {
+        $this->hidden = $hidden;
     }
 
     /**

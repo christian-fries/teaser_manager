@@ -163,14 +163,14 @@ class AdminController extends BackendModuleActionController
         $this->view->assign('filter', $filter);
 
         if ($filter->getType()) {
-            $teasers = $this->teaserRepository->findByType($filter->getType());
+            $teasers = $this->teaserRepository->findByType($filter->getType(), 'Backend');
         }
         else {
-            $teasers = $this->teaserRepository->findAll();
+            $teasers = $this->teaserRepository->findAll('Backend');
         }
         $this->view->assign('teasers', $teasers);
 
-        $teaserTypes = $this->teaserTypeRepository->findAll();
+        $teaserTypes = $this->teaserTypeRepository->findAll('Backend');
         $this->view->assign('teaserTypes', $teaserTypes);
     }
 }

@@ -14,5 +14,55 @@ namespace CHF\TeaserManager\Domain\Repository;
 
 class TeaserRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+    /**
+     * Initialize Object with predefined settings
+     *
+     * @return void
+     */
+    public function initializeObject()
+    {
+        $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+        $querySettings->setRespectStoragePage(FALSE);
+        $this->setDefaultQuerySettings($querySettings);
+    }
+
+    /**
+     * @param string $mode
+     * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
+    public function findAll($mode = 'Frontend') {
+        $query = $this->createQuery();
+
+        if($mode == 'Backend') {
+            $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+            $querySettings->setIgnoreEnableFields(TRUE);
+            $querySettings->setRespectStoragePage(FALSE);
+            $query->setQuerySettings($querySettings);
+        }
+
+        return $query->execute();
+    }
+
+    /**
+     * @param string $mode
+     * @param \CHF\TeaserManager\Domain\Model\TeaserType $type
+     * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
+    public function findByType($type, $mode = 'Frontend') {
+        $query = $this->createQuery();
+
+        if($mode == 'Backend') {
+            $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
+            $querySettings->setIgnoreEnableFields(TRUE);
+            $querySettings->setRespectStoragePage(FALSE);
+            $query->setQuerySettings($querySettings);
+        }
+
+        $query->matching(
+            $query->equals('type', $type)
+        );
+
+        return $query->execute();
+    }
 
 }
