@@ -3,6 +3,8 @@ return [
     'ctrl' => [
         'title'	=> 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser',
         'label' => 'title',
+        'label_alt' => 'subtitle',
+        'label_alt_force' => true,
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
