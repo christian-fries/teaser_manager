@@ -24,7 +24,7 @@ $teaser_columns = [
             'type' => 'select',
             'renderType' => 'selectMultipleSideBySide',
             'foreign_table' => 'tx_teasermanager_domain_model_teaser',
-            'foreign_table_where' => ' AND tx_teasermanager_domain_model_teaser.type = ###REC_FIELD_teaser_type###',
+            'foreign_table_where' => ' AND tx_teasermanager_domain_model_teaser.type = ###REC_FIELD_teaser_type### AND tx_teasermanager_domain_model_teaser.sys_language_uid = 0',
             'MM' => 'tx_teasermanager_ttcontent_teaser_mm',
             'size' => 10,
             'autoSizeMax' => 30,
