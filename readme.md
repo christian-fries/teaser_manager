@@ -4,6 +4,9 @@ This TYPO3 extension provides a backend module that allows you to manage teasers
 
 ## Change log
 
+### Version 1.0.1
+- Replace backend module icon
+
 ### Version 1.0.0
 
 - First stable release
