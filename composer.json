@@ -3,7 +3,7 @@
 	"type": "typo3-cms-extension",
 	"description": "TYPO3 Teaser Manager",
 	"require": {
-		"typo3/cms": ">=7.6.0",
+		"typo3/minimal": ">=7.6.0",
 		"chf/backend-module": ">=0.7.1"
 
 	},
