@@ -31,6 +31,7 @@ $teaser_columns = [
             'autoSizeMax' => 30,
             'maxitems' => 9999,
             'multiple' => 0,
+            'enableMultiSelectFilterTextfield' => true
         ],
     ],
 ];
