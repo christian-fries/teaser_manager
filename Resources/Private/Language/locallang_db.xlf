@@ -6,6 +6,9 @@
 			<trans-unit id="teaser">
 				<source>Teaser</source>
 			</trans-unit>
+			<trans-unit id="teaser.name">
+				<source>Name (for internal purpose only)</source>
+			</trans-unit>
 			<trans-unit id="teaser.title">
 				<source>Title</source>
 			</trans-unit>

@@ -6,6 +6,7 @@ CREATE TABLE tx_teasermanager_domain_model_teaser (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
+	name varchar(255) DEFAULT '' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
 	subtitle varchar(255) DEFAULT '' NOT NULL,
 	link_text varchar(255) DEFAULT '' NOT NULL,

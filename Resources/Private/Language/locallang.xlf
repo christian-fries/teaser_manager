@@ -9,6 +9,9 @@
 			<trans-unit id="teaser.teasers">
 				<source>Teasers</source>
 			</trans-unit>
+			<trans-unit id="teaser.name">
+				<source>Internal name</source>
+			</trans-unit>
 			<trans-unit id="teaser.title">
 				<source>Title</source>
 			</trans-unit>

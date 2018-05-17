@@ -21,6 +21,11 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
      * @var string
+     */
+    protected $name = '';
+
+    /**
+     * @var string
      * @validate NotEmpty
      */
     protected $title = '';
@@ -93,6 +98,27 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function initializeObjectStorages()
     {
         $this->images = new ObjectStorage();
+    }
+
+    /**
+     * Returns the name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Sets the name
+     *
+     * @param string $name
+     * @return void
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
     }
 
     /**

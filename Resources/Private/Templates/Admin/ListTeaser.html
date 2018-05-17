@@ -37,8 +37,10 @@
                 <thead>
                 <tr>
                     <th class="col-icon" width="35">
-                        <bm:button.addRecord table="tx_teasermanager_domain_model_teaser" pid="{storagePid}"
-                                             returnUrl="{returnUrl}"/>
+                        <bm:button.addRecord table="tx_teasermanager_domain_model_teaser" pid="{storagePid}" returnUrl="{returnUrl}" />
+                    </th>
+                    <th>
+                        <f:translate key="teaser.name"/>
                     </th>
                     <th>
                         <f:translate key="teaser.title"/>
@@ -57,18 +59,16 @@
                             <bm:button.iconForRecord table="tx_teasermanager_domain_model_teaser" uid="{teaser.uid}"/>
                         </td>
                         <td>
-                            <bm:link.editRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser"
-                                                returnUrl="{returnUrl}">{teaser.title}
-                            </bm:link.editRecord>
+                            <bm:link.editRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser" returnUrl="{returnUrl}">{teaser.name}</bm:link.editRecord>
+                        </td>
+                        <td>
+                            <bm:link.editRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser" returnUrl="{returnUrl}">{teaser.title}</bm:link.editRecord>
                         </td>
                         <td>{teaser.type.title}</td>
                         <td class="col-control" nowrap="nowrap">
                             <div class="btn-group" role="group">
-                                <bm:button.editRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser"
-                                                      returnUrl="{returnUrl}"/>
-                                <bm:button.disableRecord object="{teaser}"
-                                                         table="tx_teasermanager_domain_model_teaser"
-                                                         returnUrl="{returnUrl}"/>
+                                <bm:button.editRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser" returnUrl="{returnUrl}"/>
+                                <bm:button.disableRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser" returnUrl="{returnUrl}"/>
                                 <bm:button.removeRecord object="{teaser}" table="tx_teasermanager_domain_model_teaser"/>
                             </div>
                         </td>

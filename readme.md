@@ -5,6 +5,7 @@ This TYPO3 extension provides a backend module that allows you to manage teasers
 ## Change log
 
 ### dev-master
+- Add new property name to teaser for better identification in backend
 - Add filter to teaser selector
 - Automatically reload teasers when teaser type changes
 

@@ -2,8 +2,8 @@
 return [
     'ctrl' => [
         'title'	=> 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser',
-        'label' => 'title',
-        'label_alt' => 'subtitle',
+        'label' => 'name',
+        'label_alt' => 'title, subtitle',
         'label_alt_force' => true,
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -20,14 +20,14 @@ return [
 			'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,subtitle,link,text,date,icon,image,type,',
+        'searchFields' => 'name, title,subtitle,link,text,date,icon,image,type,',
         'iconfile' => 'EXT:teaser_manager/Resources/Public/Icons/tx_teasermanager_domain_model_teaser.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, subtitle, link, link_text, text, date, icon, image, images, type',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, title, subtitle, link, link_text, text, date, icon, image, images, type',
     ],
     'types' => [
-        '1' => ['showitem' => 'type, title, subtitle, link_text, link, text, date, icon, image, images, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'type, name, title, subtitle, link_text, link, text, date, icon, image, images, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -112,6 +112,18 @@ return [
             ],
         ],
 
+	    'name' => [
+	        'exclude' => 0,
+	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.name',
+            'displayCond' => 'FIELD:type:REQ:true',
+	        'config' => [
+			    'type' => 'input',
+			    'size' => 30,
+			    'eval' => 'trim'
+			],
+	        
+	    ],
+
 	    'title' => [
 	        'exclude' => 0,
 	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.title',
@@ -121,7 +133,7 @@ return [
 			    'size' => 30,
 			    'eval' => 'trim,required'
 			],
-	        
+
 	    ],
 	    'subtitle' => [
 	        'exclude' => 1,
