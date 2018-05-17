@@ -4,6 +4,9 @@ This TYPO3 extension provides a backend module that allows you to manage teasers
 
 ## Change log
 
+### dev-master
+- Automatically reload teasers when teaser type changes
+
 ### Version 1.0.3
 - Replace rest of module icons
 

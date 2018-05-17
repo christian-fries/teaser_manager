@@ -4,6 +4,7 @@ $teaser_columns = [
     'teaser_type' => [
         'exclude' => 1,
         'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tt_content.teaser_type',
+        'onChange' => 'reload',
         'config' => [
             'type' => 'select',
             'renderType' => 'selectSingle',
