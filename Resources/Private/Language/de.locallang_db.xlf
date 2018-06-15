@@ -42,6 +42,10 @@
 			<trans-unit id="teaser.icon">
 				<source>Icon</source>
 			</trans-unit>
+			<trans-unit id="teaser.selected_icon">
+				<source>Icon selector</source>
+				<target>Icon-Auswahl</target>
+			</trans-unit>
 			<trans-unit id="teaser.image">
 				<source>Image</source>
 				<target>Bild</target>

@@ -20,14 +20,15 @@ return [
 			'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'name, title,subtitle,link,text,date,icon,image,type,',
+        'requestUpdate' => 'type',
+        'searchFields' => 'name, title,subtitle,link,text,date,icon,selected_icon,image,type,',
         'iconfile' => 'EXT:teaser_manager/Resources/Public/Icons/tx_teasermanager_domain_model_teaser.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, title, subtitle, link, link_text, text, date, icon, image, images, type',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, title, subtitle, link, link_text, text, date, icon, selected_icon, image, images, type',
     ],
     'types' => [
-        '1' => ['showitem' => 'type, name, title, subtitle, link_text, link, text, date, icon, image, images, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'type, name, title, subtitle, link_text, link, text, date, icon, selected_icon, image, images, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -214,6 +215,19 @@ return [
 			    'eval' => 'trim'
 			],
 	        
+	    ],
+	    'selected_icon' => [
+	        'exclude' => 1,
+	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.selected_icon',
+            'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:selected_icon',
+	        'config' => [
+			    'type' => 'select',
+                'items' => [
+                    ['', '']
+                ],
+                'itemsProcFunc' => 'CHF\TeaserManager\Hook\ItemsProcFunc->icons'
+			],
+
 	    ],
 	    'image' => [
 	        'exclude' => 1,

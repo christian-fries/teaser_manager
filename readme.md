@@ -2,7 +2,20 @@
 
 This TYPO3 extension provides a backend module that allows you to manage teasers in a central place and use them whereever you need them.
 
+## Icon provider
+
+To provide icons to the icon selector, define them in the Page TS of your site package:
+```
+tx_teasermanager.icons {
+    icon-mail = LLL:EXT:my_sitepackage/Resources/Private/Language/locallang.xlf:teasermanager.icon.mail
+    icon-phone = LLL:EXT:my_sitepackage/Resources/Private/Language/locallang.xlf:teasermanager.icon.phone
+}
+```
+
 ## Change log
+
+### dev-master
+- Add new teaser property "icon selector" to choose an icon from a predefined set
 
 ### Version 1.1.0
 - Add new property name to teaser for better identification in backend

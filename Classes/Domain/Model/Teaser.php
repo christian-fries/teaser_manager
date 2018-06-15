@@ -66,6 +66,11 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $icon = '';
 
     /**
+     * @var string
+     */
+    protected $selectedIcon = '';
+
+    /**
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     protected $image = null;
@@ -220,6 +225,27 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setIcon($icon)
     {
         $this->icon = $icon;
+    }
+
+    /**
+     * Returns the selected icon
+     *
+     * @return string icon
+     */
+    public function getSelectedIcon()
+    {
+        return $this->selectedIcon;
+    }
+
+    /**
+     * Sets the selected icon
+     *
+     * @param string $selectedIcon
+     * @return void
+     */
+    public function setSelectedIcon($selectedIcon)
+    {
+        $this->selectedIcon = $selectedIcon;
     }
 
     /**
