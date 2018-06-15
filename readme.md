@@ -1,6 +1,6 @@
 # EXT:teaser_manager
 
-This TYPO3 extension provides a backend module that allows you to manage teasers in a central place and use them whereever you need them.
+This TYPO3 extension provides a backend module that allows you to manage teasers in a central place and use them wherever you need them.
 
 ## Icon provider
 
@@ -14,7 +14,7 @@ tx_teasermanager.icons {
 
 ## Change log
 
-### dev-master
+### Version 1.2.0
 - Add new teaser property "icon selector" to choose an icon from a predefined set
 
 ### Version 1.1.0

@@ -2,13 +2,13 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Teaser Manager',
-    'description' => 'Manage teaser in one place and use them whereever you want to.',
+    'description' => 'Manage teaser in one place and use them wherever you want to.',
     'category' => 'plugin',
     'author' => 'Christian Fries',
     'author_email' => 'hallo@christian-fries.ch',
     'state' => 'stable',
     'clearCacheOnLoad' => 1,
-    'version' => '1.1.0',
+    'version' => '1.2.0',
     'constraints' => [
         'depends' => [
             'typo3' => '7.6.0-8.7.99',
