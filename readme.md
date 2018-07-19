@@ -14,6 +14,9 @@ tx_teasermanager.icons {
 
 ## Change log
 
+### dev-master
+- Add layouts to teaser type for different representations of the same teaser type
+
 ### Version 1.2.0
 - Add new teaser property "icon selector" to choose an icon from a predefined set
 

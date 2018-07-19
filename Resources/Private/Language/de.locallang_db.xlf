@@ -74,6 +74,14 @@
 				<source>Fields</source>
 				<target>Felder</target>
 			</trans-unit>
+			<trans-unit id="teaserlayout">
+				<source>Teaser Layout</source>
+				<target>Teaser Layout</target>
+			</trans-unit>
+			<trans-unit id="teaserlayout.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
 			<trans-unit id="tt_content.teaser_type">
 				<source>Teaser Type</source>
 				<target>Teasertyp</target>
@@ -82,9 +90,17 @@
 				<source>Please choose</source>
 				<target>Bitte wählen</target>
 			</trans-unit>
+			<trans-unit id="tt_content.teaser_layout">
+				<source>Layout</source>
+				<target>Layout</target>
+			</trans-unit>
+			<trans-unit id="tt_content.teaser_layout.default">
+				<source>Default</source>
+				<target>Standard</target>
+			</trans-unit>
 			<trans-unit id="tt_content.teaser_items">
-				<source>Teaser items</source>
-				<target>Teaser</target>
+				<source>Teaser items to display</source>
+				<target>Teaser, die ausgegeben werden sollen</target>
 			</trans-unit>
 			<trans-unit id="tt_content.ce.title">
 				<source>Teaser</source>

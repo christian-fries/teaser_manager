@@ -29,14 +29,14 @@ return [
         'cruser_id' => 'cruser_id',
         'dividers2tabs' => 1,
 		'delete' => 'deleted',
-        'searchFields' => 'title,fields,',
+        'searchFields' => 'title,',
         'iconfile' => 'EXT:teaser_manager/Resources/Public/Icons/tx_teasermanager_domain_model_teasertype.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'title, fields',
+        'showRecordFieldList' => 'title, fields, layouts',
     ],
     'types' => [
-        '1' => ['showitem' => 'title, fields, '],
+        '1' => ['showitem' => 'title, fields, layouts, '],
     ],
     'columns' => [
 	    'title' => [
@@ -63,6 +63,47 @@ return [
 			],
 	        
 	    ],
-        
+        'layouts' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tt_content.layouts',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_teasermanager_domain_model_teaserlayout',
+                'MM' => 'tx_teasermanager_teasertype_teaserlayout_mm',
+                'size' => 10,
+                'autoSizeMax' => 30,
+                'maxitems' => 9999,
+                'multiple' => 0,
+                'enableMultiSelectFilterTextfield' => true,
+                'wizards' => array(
+                    '_VERTICAL' => 1,
+                    'edit' => array(
+                        'type' => 'popup',
+                        'title' => 'Edit layout',
+                        'module' => array(
+                            'name' => 'wizard_edit',
+                        ),
+                        'popup_onlyOpenIfSelected' => 1,
+                        'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
+                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1'
+                    ),
+                    'add' => array(
+                        'type' => 'script',
+                        'title' => 'Add layout',
+                        'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif',
+                        'params' => array(
+                            'table' => 'tx_teasermanager_domain_model_teaserlayout',
+                            'pid' => '###CURRENT_PID###',
+                            'setValue' => 'prepend'
+                        ),
+                        'module' => array(
+                            'name' => 'wizard_add'
+                        )
+                    )
+                )
+
+            ],
+        ],
     ],
 ];

@@ -60,14 +60,26 @@
 			<trans-unit id="teasertype.fields">
 				<source>Fields</source>
 			</trans-unit>
+			<trans-unit id="teaserlayout">
+				<source>Teaser Layout</source>
+			</trans-unit>
+			<trans-unit id="teaserlayout.title">
+				<source>Title</source>
+			</trans-unit>
 			<trans-unit id="tt_content.teaser_type">
 				<source>Teaser Type</source>
 			</trans-unit>
 			<trans-unit id="tt_content.teaser_type.choose">
 				<source>Please choose</source>
 			</trans-unit>
+			<trans-unit id="tt_content.teaser_layout">
+				<source>Layout</source>
+			</trans-unit>
+			<trans-unit id="tt_content.teaser_layout.default">
+				<source>Default</source>
+			</trans-unit>
 			<trans-unit id="tt_content.teaser_items">
-				<source>Teaser items</source>
+				<source>Teaser items to display</source>
 			</trans-unit>
 			<trans-unit id="tt_content.ce.title">
 				<source>Teaser</source>

@@ -14,7 +14,27 @@ $teaser_columns = [
             'foreign_table' => 'tx_teasermanager_domain_model_teasertype',
             'minitems' => 1,
             'maxitems' => 1,
-            'eval' => 'required'
+            'eval' => 'required',
+            'disableNoMatchingValueElement' => 1,
+        ],
+    ],
+    'teaser_layout' => [
+        'exclude' => 1,
+        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tt_content.teaser_layout',
+        'displayCond' => 'FIELD:teaser_type:REQ:true',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tt_content.teaser_layout.default', '']
+            ],
+            'foreign_table' => 'tx_teasermanager_domain_model_teaserlayout',
+            'foreign_table_where' => ' AND tx_teasermanager_domain_model_teaserlayout.uid IN ' .
+                '(SELECT uid_foreign FROM tx_teasermanager_teasertype_teaserlayout_mm WHERE uid_local=###REC_FIELD_teaser_type###) ',
+            'MM' => 'tx_teasermanager_teasertype_teaserlayout_mm',
+            'minitems' => 1,
+            'maxitems' => 1,
+            'disableNoMatchingValueElement' => 1,
         ],
     ],
     'teaser_items' => [
@@ -36,6 +56,11 @@ $teaser_columns = [
     ],
 ];
 
+$GLOBALS['TCA']['tt_content']['palettes']['teaser_type_palette'] = array(
+    'showitem' => 'teaser_type, teaser_layout, --linebreak--, teaser_items',
+    'canNotCollapse' => 1
+);
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $teaser_columns);
 
 // Request update when changing teaser_type
@@ -55,4 +80,4 @@ $GLOBALS['TCA']['tt_content']['ctrl']['requestUpdate'] = !empty($requestUpdate) 
 
 // Define fields to show
 $GLOBALS['TCA']['tt_content']['types']['teasermanager_teaser']['showitem'] = '--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general, --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.headers;header,';
-$GLOBALS['TCA']['tt_content']['types']['teasermanager_teaser']['showitem'] .= 'teaser_type, teaser_items';
+$GLOBALS['TCA']['tt_content']['types']['teasermanager_teaser']['showitem'] .= '--palette--;LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser;teaser_type_palette,';

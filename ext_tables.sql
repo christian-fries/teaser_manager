@@ -59,6 +59,25 @@ CREATE TABLE tx_teasermanager_domain_model_teasertype (
 
 	title varchar(255) DEFAULT '' NOT NULL,
 	fields varchar(255) DEFAULT '' NOT NULL,
+	layouts int(11) unsigned DEFAULT '0' NOT NULL,
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+
+	PRIMARY KEY (uid)
+);
+
+#
+# Table structure for table 'tx_teasermanager_domain_model_teaserlayout'
+#
+CREATE TABLE tx_teasermanager_domain_model_teaserlayout (
+
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	title varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -75,6 +94,7 @@ CREATE TABLE tx_teasermanager_domain_model_teasertype (
 CREATE TABLE tt_content (
 
 	teaser_type int(11) unsigned DEFAULT '0' NOT NULL,
+	teaser_layout int(11) unsigned DEFAULT '0' NOT NULL,
 	teaser_items int(11) unsigned DEFAULT '0' NOT NULL,
 
 );
@@ -83,6 +103,19 @@ CREATE TABLE tt_content (
 # Table structure for table 'tx_teasermanager_ttcontent_teaser_mm'
 #
 CREATE TABLE tx_teasermanager_ttcontent_teaser_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+#
+# Table structure for table 'tx_teasermanager_teasertype_teaserlayout_mm'
+#
+CREATE TABLE tx_teasermanager_teasertype_teaserlayout_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,
