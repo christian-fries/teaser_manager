@@ -14,7 +14,7 @@ tx_teasermanager.icons {
 
 ## Change log
 
-### dev-master
+### Version 1.3.0
 - Add layouts to teaser type for different representations of the same teaser type
 
 ### Version 1.2.0
