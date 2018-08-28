@@ -7,8 +7,8 @@ This TYPO3 extension provides a backend module that allows you to manage teasers
 To provide icons to the icon selector, define them in the Page TS of your site package:
 ```
 tx_teasermanager.icons {
-    icon-mail = LLL:EXT:my_sitepackage/Resources/Private/Language/locallang.xlf:teasermanager.icon.mail
-    icon-phone = LLL:EXT:my_sitepackage/Resources/Private/Language/locallang.xlf:teasermanager.icon.phone
+    icon-mail = LLL:EXT:my_sitepackage/Resources/Private/Language/locallang_db.xlf:teasermanager.icon.mail
+    icon-phone = LLL:EXT:my_sitepackage/Resources/Private/Language/locallang_db.xlf:teasermanager.icon.phone
 }
 ```
 
