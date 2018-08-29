@@ -331,9 +331,7 @@ return [
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:size',
             'config' => [
                 'type' => 'select',
-                'items' => [
-                    ['', '']
-                ],
+                'items' => [],
                 'itemsProcFunc' => 'CHF\TeaserManager\Hook\ItemsProcFunc->sizes'
             ],
 

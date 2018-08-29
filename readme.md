@@ -16,6 +16,9 @@ The property `size` works the same way.
 
 ## Change log
 
+### dev-master
+- Don't allow empty size property
+
 ### Version 1.4.0
 - Add new teaser property "size"
 
