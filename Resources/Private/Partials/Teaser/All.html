@@ -1,5 +1,5 @@
 <f:for each="{teasers}" as="teaser">
-    <div class="teaser teaser-{teaser.uid} teaser-type-{teaser.type.uid}">
+    <div class="teaser teaser-{teaser.uid} teaser-type-{teaser.type.uid}{f:if(condition: teaser.size, then: ' {teaser.size}')}">
         <f:link.typolink parameter="{teaser.link}" class="teaser-link">
             <f:if condition="{teaserFields.image}">
                 <f:if condition="{teaser.image}">

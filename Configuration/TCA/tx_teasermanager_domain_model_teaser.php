@@ -25,10 +25,10 @@ return [
         'iconfile' => 'EXT:teaser_manager/Resources/Public/Icons/tx_teasermanager_domain_model_teaser.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, title, subtitle, link, link_text, text, date, icon, selected_icon, image, images, type',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, title, subtitle, link, link_text, text, date, icon, selected_icon, image, images, size, type',
     ],
     'types' => [
-        '1' => ['showitem' => 'type, name, title, subtitle, link_text, link, text, date, icon, selected_icon, image, images, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'type, name, title, subtitle, link_text, link, text, date, icon, selected_icon, image, images, size, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -325,6 +325,19 @@ return [
 			),
 
 	    ],
+        'size' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.size',
+            'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:size',
+            'config' => [
+                'type' => 'select',
+                'items' => [
+                    ['', '']
+                ],
+                'itemsProcFunc' => 'CHF\TeaserManager\Hook\ItemsProcFunc->sizes'
+            ],
+
+        ],
 	    'type' => [
 	        'exclude' => 0,
 	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.type',

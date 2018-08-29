@@ -47,4 +47,25 @@ class ItemsProcFunc
             array_push($config['items'], $icons);
         }
     }
+
+    /**
+     * Itemsproc function to provide sizes to the size selector
+     *
+     * @param array &$config configuration array
+     * @return void
+     */
+    public function sizes(array &$config)
+    {
+        $pageId = $config['row']['pid'];
+        $pluginName = 'tx_teasermanager.';
+        $items = $this->itemProvider->getAvailableItems($pageId, 'sizes', $pluginName);
+
+        foreach ($items as $size) {
+            $sizes = [
+                htmlspecialchars($size[0]),
+                $size[1]
+            ];
+            array_push($config['items'], $sizes);
+        }
+    }
 }

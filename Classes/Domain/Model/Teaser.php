@@ -81,6 +81,11 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $images = null;
 
     /**
+     * @var string
+     */
+    protected $size = '';
+
+    /**
      * @var \CHF\ColorManager\Domain\Model\Color
      * @lazy
      */
@@ -372,6 +377,27 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setImages(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $images)
     {
         $this->images = $images;
+    }
+
+    /**
+     * Returns the size
+     *
+     * @return string $size
+     */
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    /**
+     * Sets the size
+     *
+     * @param string $size
+     * @return void
+     */
+    public function setSize($size)
+    {
+        $this->size = $size;
     }
 
     /**

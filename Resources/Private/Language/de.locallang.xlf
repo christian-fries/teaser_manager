@@ -49,6 +49,10 @@
 				<source>Images</source>
 				<target>Bilder</target>
 			</trans-unit>
+			<trans-unit id="teaser.size">
+				<source>Size</source>
+				<target>Grösse</target>
+			</trans-unit>
 			<trans-unit id="teaser.color">
 				<source>Color</source>
 				<target>Farbe</target>

@@ -12,7 +12,12 @@ tx_teasermanager.icons {
 }
 ```
 
+The property `size` works the same way.
+
 ## Change log
+
+### dev-master
+- Add new teaser property "size"
 
 ### Version 1.3.0
 - Add layouts to teaser type for different representations of the same teaser type

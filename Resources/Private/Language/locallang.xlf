@@ -42,6 +42,9 @@
 			<trans-unit id="teaser.images">
 				<source>Images</source>
 			</trans-unit>
+			<trans-unit id="teaser.size">
+				<source>Size</source>
+			</trans-unit>
 			<trans-unit id="teaser.color">
 				<source>Color</source>
 			</trans-unit>

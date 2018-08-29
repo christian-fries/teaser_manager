@@ -18,6 +18,7 @@ CREATE TABLE tx_teasermanager_domain_model_teaser (
 	selected_icon varchar(255) DEFAULT '' NOT NULL,
 	image int(11) unsigned NOT NULL default '0',
 	images int(11) unsigned NOT NULL default '0',
+	size varchar(255) DEFAULT '' NOT NULL,
 	type varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
