@@ -16,7 +16,7 @@ The property `size` works the same way.
 
 ## Change log
 
-### dev-master
+### 1.4.1
 - Don't allow empty size property
 
 ### Version 1.4.0
