@@ -16,7 +16,7 @@ The property `size` works the same way.
 
 ## Change log
 
-### dev-master
+### Version 1.4.0
 - Add new teaser property "size"
 
 ### Version 1.3.0
