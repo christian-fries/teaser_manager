@@ -16,6 +16,9 @@ The property `size` works the same way.
 
 ## Change log
 
+### 1.5.0
+- Display all "core-palettes" (header, behaviour, access, ...)
+
 ### 1.4.1
 - Don't allow empty size property
 
