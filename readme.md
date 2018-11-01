@@ -16,6 +16,9 @@ The property `size` works the same way.
 
 ## Change log
 
+### 1.6.1
+- Display also "name" of teasers in BE page module
+
 ### 1.6.0
 - Display all selected teasers in BE page module
 

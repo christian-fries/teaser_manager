@@ -94,7 +94,7 @@ class PluginPreview implements PageLayoutViewDrawItemHookInterface
     {
         $teasers = [];
         $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
-            'teaser.title',
+            'teaser.title, teaser.name',
             'tx_teasermanager_domain_model_teaser AS teaser, tx_teasermanager_ttcontent_teaser_mm AS mm',
             'mm.uid_local = '.$contentElement.' AND mm.uid_foreign = teaser.uid',
             $groupBy = '',
@@ -102,7 +102,10 @@ class PluginPreview implements PageLayoutViewDrawItemHookInterface
             $limit = ''
         );
         while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
-            $teasers[] = $row['title'];
+            $teasers[] = [
+                'title' => $row['title'],
+                'name' => $row['name'],
+            ];
         }
         return $teasers;
     }

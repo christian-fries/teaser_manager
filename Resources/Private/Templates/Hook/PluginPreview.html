@@ -1,6 +1,6 @@
 <b>Teaser: {teaserType}</b>
 <p>
     <f:for each="{selectedTeasers}" as="teaser">
-        - {teaser}<br />
+        - {teaser.title}<f:if condition="{teaser.name}"> ({teaser.name})</f:if><br />
     </f:for>
 </p>
