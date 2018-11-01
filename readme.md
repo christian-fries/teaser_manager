@@ -16,6 +16,12 @@ The property `size` works the same way.
 
 ## Change log
 
+### 1.6.0
+- Display all selected teasers in BE page module
+
+### 1.5.1
+- Bugfix-Release, repair TCA of tt_content override
+
 ### 1.5.0
 - Display all "core-palettes" (header, behaviour, access, ...)
 
