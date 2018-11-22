@@ -16,6 +16,8 @@ CREATE TABLE tx_teasermanager_domain_model_teaser (
 	color int(11) unsigned DEFAULT '0' NOT NULL,
 	icon varchar(255) DEFAULT '' NOT NULL,
 	selected_icon varchar(255) DEFAULT '' NOT NULL,
+	person int(11) unsigned DEFAULT '0' NOT NULL,
+	persons int(11) unsigned DEFAULT '0' NOT NULL,
 	image int(11) unsigned NOT NULL default '0',
 	images int(11) unsigned NOT NULL default '0',
 	size varchar(255) DEFAULT '' NOT NULL,
@@ -124,4 +126,16 @@ CREATE TABLE tx_teasermanager_teasertype_teaserlayout_mm (
 
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
+);
+
+#
+# Table structure for table 'tx_teasermanager_teaser_person_mm'
+#
+CREATE TABLE tx_teasermanager_teaser_person_mm (
+    uid_local int(11) DEFAULT '0' NOT NULL,
+    uid_foreign int(11) DEFAULT '0' NOT NULL,
+    sorting int(11) DEFAULT '0' NOT NULL,
+
+    KEY uid_local (uid_local),
+    KEY uid_foreign (uid_foreign)
 );

@@ -16,6 +16,9 @@ The property `size` works the same way.
 
 ## Change log
 
+### dev-master
+- Add new teaser properties person and persons
+
 ### 1.6.1
 - Display also "name" of teasers in BE page module
 

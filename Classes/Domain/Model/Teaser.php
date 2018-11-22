@@ -71,6 +71,18 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $selectedIcon = '';
 
     /**
+     * @var \LST\People\Domain\Model\Person
+     * @lazy
+     */
+    protected $person = null;
+
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\LST\People\Domain\Model\Person>
+     * @lazy
+     */
+    protected $persons = null;
+
+    /**
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     protected $image = null;
@@ -107,6 +119,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     public function initializeObjectStorages()
     {
+        $this->persons = new ObjectStorage();
         $this->images = new ObjectStorage();
     }
 
@@ -251,6 +264,48 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setSelectedIcon($selectedIcon)
     {
         $this->selectedIcon = $selectedIcon;
+    }
+
+    /**
+     * Returns the person
+     *
+     * @return \LST\People\Domain\Model\Person
+     */
+    public function getPerson()
+    {
+        return $this->person;
+    }
+
+    /**
+     * Sets the person
+     *
+     * @param \LST\People\Domain\Model\Person $persons
+     * @return void
+     */
+    public function setPerson(\LST\People\Domain\Model\Person $person)
+    {
+        $this->person = $person;
+    }
+
+    /**
+     * Returns the persons
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\LST\People\Domain\Model\Person>
+     */
+    public function getPersons()
+    {
+        return $this->persons;
+    }
+
+    /**
+     * Sets the persons
+     *
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\LST\People\Domain\Model\Person> $persons
+     * @return void
+     */
+    public function setPersons(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $persons)
+    {
+        $this->persons = $persons;
     }
 
     /**

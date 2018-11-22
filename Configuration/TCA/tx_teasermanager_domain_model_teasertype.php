@@ -9,6 +9,8 @@ $fieldItems = [
     ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.text', 'text'],
     ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.icon', 'icon'],
     ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.selected_icon', 'selected_icon'],
+    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.person', 'person'],
+    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.persons', 'persons'],
     ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.image', 'image'],
     ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.images', 'images'],
     ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.size', 'size'],

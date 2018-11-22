@@ -41,6 +41,13 @@
 				<source>Selected icon</source>
 				<target>Ausgewähltes Icon</target>
 			</trans-unit>
+			<trans-unit id="teaser.person">
+				<source>Person</source>
+			</trans-unit>
+			<trans-unit id="teaser.persons">
+				<source>Persons</source>
+				<target>Personen</target>
+			</trans-unit>
 			<trans-unit id="teaser.image">
 				<source>Image</source>
 				<target>Bild</target>
