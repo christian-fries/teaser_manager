@@ -16,6 +16,9 @@ The property `size` works the same way.
 
 ## Change log
 
+### 1.7.1
+- Plugin preview not working in TYPO3 9 LTS
+
 ### 1.7.0
 - Add new teaser properties person and persons
 
