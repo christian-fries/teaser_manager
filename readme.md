@@ -16,7 +16,7 @@ The property `size` works the same way.
 
 ## Change log
 
-### dev-master
+### 1.7.0
 - Add new teaser properties person and persons
 
 ### 1.6.1
