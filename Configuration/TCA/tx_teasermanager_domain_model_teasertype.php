@@ -68,7 +68,7 @@ return [
 	    ],
         'layouts' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:tt_content.layouts',
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teasertype.layouts',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',

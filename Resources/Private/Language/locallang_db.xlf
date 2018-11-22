@@ -72,6 +72,9 @@
 			<trans-unit id="teasertype.fields">
 				<source>Fields</source>
 			</trans-unit>
+			<trans-unit id="teasertype.layouts">
+				<source>Layouts</source>
+			</trans-unit>
 			<trans-unit id="teaserlayout">
 				<source>Teaser Layout</source>
 			</trans-unit>

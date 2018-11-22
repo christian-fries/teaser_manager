@@ -89,6 +89,9 @@
 				<source>Fields</source>
 				<target>Felder</target>
 			</trans-unit>
+			<trans-unit id="teasertype.layouts">
+				<source>Layouts</source>
+			</trans-unit>
 			<trans-unit id="teaserlayout">
 				<source>Teaser Layout</source>
 				<target>Teaser Layout</target>
