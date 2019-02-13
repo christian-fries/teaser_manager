@@ -17,6 +17,7 @@ The property `size` works the same way.
 ## Change log
 
 ### dev-master
+- Remove configuration button in backend module
 - Adjust file extension for typoscript and tsconfig files
 
 ### 1.7.1

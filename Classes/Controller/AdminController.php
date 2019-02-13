@@ -64,7 +64,6 @@ class AdminController extends BackendModuleActionController
         // Initialize configuration
         $this->extKey = 'teaser_manager';
         $this->moduleName = 'web_TeaserManagerAdmin';
-        $this->showConfigurationButton = true;
 
         $this->backendSession->setStorageKey('teaser_manager');
 
