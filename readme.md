@@ -17,6 +17,7 @@ The property `size` works the same way.
 ## Change log
 
 ### dev-master
+- Use `lib.contentElement` instead of `lib.fluidContent`
 - Migrate database requests to doctrine
 - Use inject methods instead of annotations
 - Remove configuration button in backend module

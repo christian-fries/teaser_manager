@@ -1,7 +1,9 @@
-<div class="ce ce-teaser" id="c{data.uid}">
-    <f:cObject data="{data}" typoscriptObjectPath="lib.stdheader" />
+<f:layout name="Default" />
 
+<f:section name="Main">
     <f:switch expression="{data.teaser_type}">
-        <f:case default="true"><f:render partial="Teaser/All.html" arguments="{teasers: teasers, teaserFields: teaserFields}" /></f:case>
+        <f:defaultCase><f:render partial="Teaser/All.html" arguments="{teasers: teasers, teaserFields: teaserFields}" /></f:defaultCase>
     </f:switch>
-</div>
+</f:section>
+
+
