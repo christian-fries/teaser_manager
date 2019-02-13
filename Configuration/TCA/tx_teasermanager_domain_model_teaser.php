@@ -9,15 +9,15 @@ return [
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
         'dividers2tabs' => 1,
-		'versioningWS' => true,
+        'versioningWS' => true,
 
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
-		'delete' => 'deleted',
+        'delete' => 'deleted',
         'enablecolumns' => [
-			'disabled' => 'hidden',
-			'starttime' => 'starttime',
+            'disabled' => 'hidden',
+            'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
         'requestUpdate' => 'type',
@@ -113,40 +113,40 @@ return [
             ],
         ],
 
-	    'name' => [
-	        'exclude' => 0,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.name',
+        'name' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.name',
             'displayCond' => 'FIELD:type:REQ:true',
-	        'config' => [
-			    'type' => 'input',
-			    'size' => 30,
-			    'eval' => 'trim'
-			],
-	        
-	    ],
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
 
-	    'title' => [
-	        'exclude' => 0,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.title',
+        ],
+
+        'title' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.title',
             'displayCond' => 'FIELD:type:REQ:true',
-	        'config' => [
-			    'type' => 'input',
-			    'size' => 30,
-			    'eval' => 'trim,required'
-			],
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim,required'
+            ],
 
-	    ],
-	    'subtitle' => [
-	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.subtitle',
+        ],
+        'subtitle' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.subtitle',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:subtitle',
-	        'config' => [
-			    'type' => 'input',
-			    'size' => 30,
-			    'eval' => 'trim'
-			],
-	        
-	    ],
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+
+        ],
         'link_text' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.link_text',
@@ -180,9 +180,9 @@ return [
                 'softref' => 'typolink'
             ],
         ],
-	    'text' => [
-	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.text',
+        'text' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.text',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:text',
             'config' => [
                 'cols' => 40,
@@ -193,138 +193,138 @@ return [
                 'type' => 'text',
             ],
         ],
-	    'date' => [
-	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.date',
+        'date' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.date',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:date',
-	        'config' => [
-			    'type' => 'input',
-			    'size' => 10,
-			    'eval' => 'datetime',
-			    'checkbox' => 1,
-			    'default' => time()
-			],
-	    ],
-	    'icon' => [
-	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.icon',
+            'config' => [
+                'type' => 'input',
+                'size' => 10,
+                'eval' => 'datetime',
+                'checkbox' => 1,
+                'default' => time()
+            ],
+        ],
+        'icon' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.icon',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:icon',
-	        'config' => [
-			    'type' => 'input',
-			    'size' => 30,
-			    'eval' => 'trim'
-			],
-	        
-	    ],
-	    'selected_icon' => [
-	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.selected_icon',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
+
+        ],
+        'selected_icon' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.selected_icon',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:selected_icon',
-	        'config' => [
-			    'type' => 'select',
+            'config' => [
+                'type' => 'select',
                 'items' => [
                     ['', '']
                 ],
                 'itemsProcFunc' => 'CHF\TeaserManager\Hook\ItemsProcFunc->icons'
-			],
+            ],
 
-	    ],
-	    'image' => [
-	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.image',
+        ],
+        'image' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.image',
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:image',
-	        'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-			    'image',
-			    [
-			        'appearance' => [
-			            'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
-			        ],
-			        'foreign_types' => [
-			            '0' => [
-			                'showitem' => '
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'image',
+                [
+                    'appearance' => [
+                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+                    ],
+                    'foreign_types' => [
+                        '0' => [
+                            'showitem' => '
 			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
 			                --palette--;;filePalette'
-			            ],
-			            \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
-			                'showitem' => '
+                        ],
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+                            'showitem' => '
 			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
 			                --palette--;;filePalette'
-			            ],
-			            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-			                'showitem' => '
+                        ],
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                            'showitem' => '
 			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
 			                --palette--;;filePalette'
-			            ],
-			            \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
-			                'showitem' => '
+                        ],
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
+                            'showitem' => '
 			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
 			                --palette--;;filePalette'
-			            ],
-			            \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
-			                'showitem' => '
+                        ],
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+                            'showitem' => '
 			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
 			                --palette--;;filePalette'
-			            ],
-			            \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
-			                'showitem' => '
+                        ],
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
+                            'showitem' => '
 			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
 			                --palette--;;filePalette'
-			            ]
-			        ],
-			        'maxitems' => 1
-			    ],
-			    $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-			),
-	        
-	    ],
-	    'images' => [
-	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.images',
-            'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:images',
-	        'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-			    'images',
-			    [
-			        'appearance' => [
-			            'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
-			        ],
-			        'foreign_types' => [
-			            '0' => [
-			                'showitem' => '
-			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-			                --palette--;;filePalette'
-			            ],
-			            \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
-			                'showitem' => '
-			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-			                --palette--;;filePalette'
-			            ],
-			            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-			                'showitem' => '
-			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-			                --palette--;;filePalette'
-			            ],
-			            \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
-			                'showitem' => '
-			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-			                --palette--;;filePalette'
-			            ],
-			            \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
-			                'showitem' => '
-			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-			                --palette--;;filePalette'
-			            ],
-			            \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
-			                'showitem' => '
-			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-			                --palette--;;filePalette'
-			            ]
-			        ],
-			        'maxitems' => 999
-			    ],
-			    $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-			),
+                        ]
+                    ],
+                    'maxitems' => 1
+                ],
+                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+            ),
 
-	    ],
+        ],
+        'images' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.images',
+            'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:images',
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'images',
+                [
+                    'appearance' => [
+                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+                    ],
+                    'foreign_types' => [
+                        '0' => [
+                            'showitem' => '
+			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+			                --palette--;;filePalette'
+                        ],
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+                            'showitem' => '
+			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+			                --palette--;;filePalette'
+                        ],
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                            'showitem' => '
+			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+			                --palette--;;filePalette'
+                        ],
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
+                            'showitem' => '
+			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+			                --palette--;;filePalette'
+                        ],
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+                            'showitem' => '
+			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+			                --palette--;;filePalette'
+                        ],
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
+                            'showitem' => '
+			                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+			                --palette--;;filePalette'
+                        ]
+                    ],
+                    'maxitems' => 999
+                ],
+                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+            ),
+
+        ],
         'size' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.size',
@@ -336,22 +336,22 @@ return [
             ],
 
         ],
-	    'type' => [
-	        'exclude' => 0,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.type',
+        'type' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.type',
             'onChange' => 'reload',
-	        'config' => [
-			    'type' => 'select',
-			    'renderType' => 'selectSingle',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.type.choose', '']
                 ],
-			    'foreign_table' => 'tx_teasermanager_domain_model_teasertype',
-			    'minitems' => 1,
-			    'maxitems' => 1,
+                'foreign_table' => 'tx_teasermanager_domain_model_teasertype',
+                'minitems' => 1,
+                'maxitems' => 1,
                 'eval' => 'required',
-			],
-	    ],
-        
+            ],
+        ],
+
     ],
 ];

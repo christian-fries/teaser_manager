@@ -1,4 +1,5 @@
 <?php
+
 namespace CHF\TeaserManager\Domain\Repository;
 
 /***
@@ -22,7 +23,7 @@ class TeaserRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     public function initializeObject()
     {
         $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
-        $querySettings->setRespectStoragePage(FALSE);
+        $querySettings->setRespectStoragePage(false);
         $this->setDefaultQuerySettings($querySettings);
     }
 
@@ -30,13 +31,14 @@ class TeaserRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * @param string $mode
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findAll($mode = 'Frontend') {
+    public function findAll($mode = 'Frontend')
+    {
         $query = $this->createQuery();
 
-        if($mode == 'Backend') {
+        if ($mode == 'Backend') {
             $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
-            $querySettings->setIgnoreEnableFields(TRUE);
-            $querySettings->setRespectStoragePage(FALSE);
+            $querySettings->setIgnoreEnableFields(true);
+            $querySettings->setRespectStoragePage(false);
             $query->setQuerySettings($querySettings);
         }
 
@@ -48,13 +50,14 @@ class TeaserRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * @param \CHF\TeaserManager\Domain\Model\TeaserType $type
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findByType($type, $mode = 'Frontend') {
+    public function findByType($type, $mode = 'Frontend')
+    {
         $query = $this->createQuery();
 
-        if($mode == 'Backend') {
+        if ($mode == 'Backend') {
             $querySettings = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\Typo3QuerySettings');
-            $querySettings->setIgnoreEnableFields(TRUE);
-            $querySettings->setRespectStoragePage(FALSE);
+            $querySettings->setIgnoreEnableFields(true);
+            $querySettings->setRespectStoragePage(false);
             $query->setQuerySettings($querySettings);
         }
 
@@ -64,5 +67,4 @@ class TeaserRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         return $query->execute();
     }
-
 }

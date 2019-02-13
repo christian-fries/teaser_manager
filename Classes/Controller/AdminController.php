@@ -1,4 +1,5 @@
 <?php
+
 namespace CHF\TeaserManager\Controller;
 
 /***
@@ -14,17 +15,11 @@ namespace CHF\TeaserManager\Controller;
 
 use CHF\BackendModule\Controller\BackendModuleActionController;
 use CHF\TeaserManager\Domain\Dto\Filter;
-use TYPO3\CMS\Backend\Template\Components\ButtonBar;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
 use TYPO3\CMS\Core\Imaging\Icon;
-use TYPO3\CMS\Core\Messaging\FlashMessage;
-use TYPO3\CMS\Core\Messaging\FlashMessageService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 
-/**
- * TeaserController
- */
 class AdminController extends BackendModuleActionController
 {
     /**
@@ -64,7 +59,8 @@ class AdminController extends BackendModuleActionController
      *
      * @return void
      */
-    public function initializeAction() {
+    public function initializeAction()
+    {
         // Initialize configuration
         $this->extKey = 'teaser_manager';
         $this->moduleName = 'web_TeaserManagerAdmin';
@@ -156,16 +152,14 @@ class AdminController extends BackendModuleActionController
                 // No filter available, create new one
                 $filter = new Filter();
             }
-        }
-        else {
+        } else {
             $this->backendSession->store('filter', $filter);
         }
         $this->view->assign('filter', $filter);
 
         if ($filter->getType()) {
             $teasers = $this->teaserRepository->findByType($filter->getType(), 'Backend');
-        }
-        else {
+        } else {
             $teasers = $this->teaserRepository->findAll('Backend');
         }
         $this->view->assign('teasers', $teasers);

@@ -18,8 +18,7 @@ $fieldItems = [
 
 // Add field 'color' if extension color_manager is loaded
 $colorManagerLoaded = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('color_manager');
-if ($colorManagerLoaded)
-{
+if ($colorManagerLoaded) {
     $fieldItems[] = ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.color', 'color'];
 }
 
@@ -31,7 +30,7 @@ return [
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
         'dividers2tabs' => 1,
-		'delete' => 'deleted',
+        'delete' => 'deleted',
         'searchFields' => 'title,',
         'iconfile' => 'EXT:teaser_manager/Resources/Public/Icons/tx_teasermanager_domain_model_teasertype.gif'
     ],
@@ -42,30 +41,30 @@ return [
         '1' => ['showitem' => 'title, fields, layouts, '],
     ],
     'columns' => [
-	    'title' => [
-	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teasertype.title',
-	        'config' => [
-			    'type' => 'input',
-			    'size' => 30,
-			    'eval' => 'trim,required'
-			],
-	        
-	    ],
-	    'fields' => [
-	        'exclude' => 1,
-	        'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teasertype.fields',
-	        'config' => [
-			    'type' => 'select',
+        'title' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teasertype.title',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim,required'
+            ],
+
+        ],
+        'fields' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teasertype.fields',
+            'config' => [
+                'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
                 'items' => $fieldItems,
                 'size' => 10,
                 'minitems' => 1,
                 'maxitems' => 99,
-			    'eval' => ''
-			],
-	        
-	    ],
+                'eval' => ''
+            ],
+
+        ],
         'layouts' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teasertype.layouts',
@@ -79,32 +78,32 @@ return [
                 'maxitems' => 9999,
                 'multiple' => 0,
                 'enableMultiSelectFilterTextfield' => true,
-                'wizards' => array(
+                'wizards' => [
                     '_VERTICAL' => 1,
-                    'edit' => array(
+                    'edit' => [
                         'type' => 'popup',
                         'title' => 'Edit layout',
-                        'module' => array(
+                        'module' => [
                             'name' => 'wizard_edit',
-                        ),
+                        ],
                         'popup_onlyOpenIfSelected' => 1,
                         'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
                         'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1'
-                    ),
-                    'add' => array(
+                    ],
+                    'add' => [
                         'type' => 'script',
                         'title' => 'Add layout',
                         'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif',
-                        'params' => array(
+                        'params' => [
                             'table' => 'tx_teasermanager_domain_model_teaserlayout',
                             'pid' => '###CURRENT_PID###',
                             'setValue' => 'prepend'
-                        ),
-                        'module' => array(
+                        ],
+                        'module' => [
                             'name' => 'wizard_add'
-                        )
-                    )
-                )
+                        ]
+                    ]
+                ]
 
             ],
         ],

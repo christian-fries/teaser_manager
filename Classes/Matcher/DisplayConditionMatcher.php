@@ -1,4 +1,5 @@
 <?php
+
 namespace CHF\TeaserManager\Matcher;
 
 /***
@@ -15,14 +16,10 @@ namespace CHF\TeaserManager\Matcher;
 use TYPO3\CMS\Core\Database\DatabaseConnection;
 
 /**
- * Class DisplayConditionMatcher
- *
  * Decide whether or not to display a field based on the selected teaser type
- *
- * @author Christian Fries <hallo@christian-fries.ch>
- * @package CHF\TeaserManager\Matcher
  */
-class DisplayConditionMatcher {
+class DisplayConditionMatcher
+{
     /**
      * @var DatabaseConnection
      */

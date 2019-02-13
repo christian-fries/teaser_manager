@@ -1,4 +1,5 @@
 <?php
+
 namespace CHF\TeaserManager\Domain\Dto;
 
 /***
@@ -12,8 +13,11 @@ namespace CHF\TeaserManager\Domain\Dto;
  *
  ***/
 
-class Filter {
-    /** @var int */
+class Filter
+{
+    /**
+     * @var int
+     */
     protected $type = 0;
 
     /**

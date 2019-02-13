@@ -1,4 +1,5 @@
 <?php
+
 namespace CHF\TeaserManager\Domain\Model;
 
 /***
@@ -14,9 +15,6 @@ namespace CHF\TeaserManager\Domain\Model;
 
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
-/**
- * Teaser
- */
 class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
@@ -26,7 +24,6 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @var string
-     * @validate NotEmpty
      */
     protected $title = '';
 
@@ -109,9 +106,6 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $type = null;
 
-    /**
-     * Teaser constructor.
-     */
     public function __construct()
     {
         $this->initializeObjectStorages();
@@ -124,8 +118,6 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the name
-     *
      * @return string
      */
     public function getName()
@@ -134,10 +126,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the name
-     *
      * @param string $name
-     * @return void
      */
     public function setName($name)
     {
@@ -145,9 +134,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the title
-     *
-     * @return string title
+     * @return string
      */
     public function getTitle()
     {
@@ -155,10 +142,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the title
-     *
      * @param string $title
-     * @return void
      */
     public function setTitle($title)
     {
@@ -175,7 +159,6 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param int $hidden
-     * @return void
      */
     public function setHidden($hidden)
     {
@@ -183,9 +166,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the subtitle
-     *
-     * @return string subtitle
+     * @return string
      */
     public function getSubtitle()
     {
@@ -193,10 +174,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the subtitle
-     *
      * @param string $subtitle
-     * @return void
      */
     public function setSubtitle($subtitle)
     {
@@ -204,8 +182,6 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the link text
-     *
      * @return string
      */
     public function getLinkText()
@@ -214,10 +190,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the link text
-     *
      * @param string $linkText
-     * @return void
      */
     public function setLinkText($linkText)
     {
@@ -225,9 +198,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the icon
-     *
-     * @return string icon
+     * @return string
      */
     public function getIcon()
     {
@@ -235,10 +206,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the icon
-     *
      * @param string $icon
-     * @return void
      */
     public function setIcon($icon)
     {
@@ -246,9 +214,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the selected icon
-     *
-     * @return string icon
+     * @return string
      */
     public function getSelectedIcon()
     {
@@ -256,10 +222,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the selected icon
-     *
      * @param string $selectedIcon
-     * @return void
      */
     public function setSelectedIcon($selectedIcon)
     {
@@ -267,8 +230,6 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the person
-     *
      * @return \LST\People\Domain\Model\Person
      */
     public function getPerson()
@@ -277,10 +238,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the person
-     *
-     * @param \LST\People\Domain\Model\Person $persons
-     * @return void
+     * @param \LST\People\Domain\Model\Person $person
      */
     public function setPerson(\LST\People\Domain\Model\Person $person)
     {
@@ -288,8 +246,6 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the persons
-     *
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\LST\People\Domain\Model\Person>
      */
     public function getPersons()
@@ -298,10 +254,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the persons
-     *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\LST\People\Domain\Model\Person> $persons
-     * @return void
      */
     public function setPersons(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $persons)
     {
@@ -309,8 +262,6 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the type
-     *
      * @return \CHF\TeaserManager\Domain\Model\TeaserType type
      */
     public function getType()
@@ -319,10 +270,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the type
-     *
      * @param \CHF\TeaserManager\Domain\Model\TeaserType $type
-     * @return void
      */
     public function setType(\CHF\TeaserManager\Domain\Model\TeaserType $type)
     {
@@ -330,9 +278,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the link
-     *
-     * @return string $link
+     * @return string
      */
     public function getLink()
     {
@@ -340,10 +286,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the link
-     *
      * @param string $link
-     * @return void
      */
     public function setLink($link)
     {
@@ -351,9 +294,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the text
-     *
-     * @return string $text
+     * @return string
      */
     public function getText()
     {
@@ -361,10 +302,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the text
-     *
      * @param string $text
-     * @return void
      */
     public function setText($text)
     {
@@ -372,9 +310,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the date
-     *
-     * @return \DateTime $date
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -382,10 +318,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the date
-     *
      * @param \DateTime $date
-     * @return void
      */
     public function setDate(\DateTime $date)
     {
@@ -393,9 +326,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the image
-     *
-     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
+     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     public function getImage()
     {
@@ -403,10 +334,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the image
-     *
      * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $image
-     * @return void
      */
     public function setImage(\TYPO3\CMS\Extbase\Domain\Model\FileReference $image)
     {
@@ -414,9 +342,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the images
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $images
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      */
     public function getImages()
     {
@@ -424,10 +350,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the images
-     *
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $images
-     * @return void
      */
     public function setImages(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $images)
     {
@@ -435,9 +358,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the size
-     *
-     * @return string $size
+     * @return string
      */
     public function getSize()
     {
@@ -445,10 +366,7 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the size
-     *
      * @param string $size
-     * @return void
      */
     public function setSize($size)
     {
@@ -465,7 +383,6 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param \CHF\ColorManager\Domain\Model\Color $color
-     * @return void
      */
     public function setColor($color)
     {

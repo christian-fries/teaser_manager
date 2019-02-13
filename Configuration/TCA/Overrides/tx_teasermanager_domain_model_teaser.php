@@ -20,7 +20,8 @@ if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(
     ];
 
     // Add correct file palette to images field
-    $GLOBALS['TCA']['tx_teasermanager_domain_model_teaser']['columns']['images']['config'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('images',
+    $GLOBALS['TCA']['tx_teasermanager_domain_model_teaser']['columns']['images']['config'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+        'images',
         [
             'appearance' => [
                 'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
@@ -59,9 +60,12 @@ if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(
                     ]
                 ],
             ]
-        ], $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']);
+        ],
+        $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+    );
 
-    $GLOBALS['TCA']['tx_teasermanager_domain_model_teaser']['columns']['image']['config'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image',
+    $GLOBALS['TCA']['tx_teasermanager_domain_model_teaser']['columns']['image']['config'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+        'image',
         [
             'appearance' => [
                 'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
@@ -101,7 +105,9 @@ if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(
                     ]
                 ],
             ]
-        ], $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']);
+        ],
+        $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+    );
 }
 
 if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('color_manager')) {

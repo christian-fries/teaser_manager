@@ -1,4 +1,5 @@
 <?php
+
 namespace CHF\TeaserManager\Hook;
 
 /***
@@ -31,7 +32,6 @@ class ItemsProcFunc
      * Itemsproc function to provide icons to the icon selector
      *
      * @param array &$config configuration array
-     * @return void
      */
     public function icons(array &$config)
     {
@@ -52,7 +52,6 @@ class ItemsProcFunc
      * Itemsproc function to provide sizes to the size selector
      *
      * @param array &$config configuration array
-     * @return void
      */
     public function sizes(array &$config)
     {

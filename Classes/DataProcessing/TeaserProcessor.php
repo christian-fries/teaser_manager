@@ -1,5 +1,17 @@
 <?php
+
 namespace CHF\TeaserManager\DataProcessing;
+
+/***
+ *
+ * This file is part of the "Teaser Manager" Extension for TYPO3 CMS.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ *  (c) 2016 Christian Fries <hallo@christian-fries.ch>, CF Webworks
+ *
+ ***/
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
@@ -44,8 +56,7 @@ class TeaserProcessor implements DataProcessorInterface
         array $contentObjectConfiguration,
         array $processorConfiguration,
         array $processedData
-    )
-    {
+    ) {
         $objectManager = GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
         $teaserRepository = $objectManager->get('CHF\TeaserManager\Domain\Repository\TeaserRepository');
 
@@ -62,7 +73,7 @@ class TeaserProcessor implements DataProcessorInterface
             'orderBy' => 'tx_teasermanager_ttcontent_teaser_mm.sorting'
         ]);
 
-        $teasers = array();
+        $teasers = [];
         foreach ($records as $key => $record) {
             /** @var ContentObjectRenderer $recordContentObjectRenderer */
             $recordContentObjectRenderer = GeneralUtility::makeInstance(ContentObjectRenderer::class);
@@ -85,11 +96,9 @@ class TeaserProcessor implements DataProcessorInterface
         ]);
 
         $teaserFields = [];
-        if (count($teaserTypeRecords) === 1)
-        {
+        if (count($teaserTypeRecords) === 1) {
             $teaserFieldsList = $teaserTypeRecords[0]['fields'];
-            foreach(explode(',', $teaserFieldsList) as $field)
-            {
+            foreach (explode(',', $teaserFieldsList) as $field) {
                 $teaserFields[$field] = 1;
             }
         }

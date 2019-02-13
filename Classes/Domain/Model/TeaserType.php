@@ -1,4 +1,5 @@
 <?php
+
 namespace CHF\TeaserManager\Domain\Model;
 
 /***
@@ -12,14 +13,9 @@ namespace CHF\TeaserManager\Domain\Model;
  *
  ***/
 
-/**
- * TeaserType
- */
 class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
-     * title
-     *
      * @var string
      */
     protected $title = '';
@@ -30,16 +26,12 @@ class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $hidden = 0;
 
     /**
-     * fields
-     *
      * @var string
      */
     protected $fields = '';
 
     /**
-     * Returns the title
-     *
-     * @return string title
+     * @return string
      */
     public function getTitle()
     {
@@ -47,10 +39,7 @@ class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the title
-     *
      * @param string $title
-     * @return void
      */
     public function setTitle($title)
     {
@@ -67,7 +56,6 @@ class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @param int $hidden
-     * @return void
      */
     public function setHidden($hidden)
     {
@@ -75,9 +63,7 @@ class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the fields
-     *
-     * @return string fields
+     * @return string
      */
     public function getFields()
     {
@@ -85,14 +71,12 @@ class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the fields
-     *
-     * @return string fields
+     * @return string
      */
     public function getFieldsList()
     {
         $fields = explode(',', $this->fields);
-        $fieldsArray = array_map(function($word) {
+        $fieldsArray = array_map(function ($word) {
             return \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('teaser.' . $word, 'teaser_manager');
         }, $fields);
 
@@ -100,10 +84,7 @@ class TeaserType extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Sets the fields
-     *
      * @param string $fields
-     * @return void
      */
     public function setFields($fields)
     {

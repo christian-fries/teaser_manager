@@ -2,15 +2,13 @@
 defined('TYPO3_MODE') || die('Access denied.');
 
 call_user_func(
-    function($extKey)
-    {
+    function ($extKey) {
         // Load extension configuration
         $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['teaser_manager']);
         $navigationComponent = (!$settings['globalStoragePid']) ? 'typo3-pagetree' : '';
 
         if (TYPO3_MODE === 'BE') {
             if ($settings['showAdministrationModule']) {
-
                 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
                     'CHF.TeaserManager',
                     'web', // Make module a submodule of 'web'
@@ -37,8 +35,7 @@ call_user_func(
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_teasermanager_domain_model_teasertype', 'EXT:teaser_manager/Resources/Private/Language/locallang_csh_tx_teasermanager_domain_model_teasertype.xlf');
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_teasermanager_domain_model_teasertype');
 
-        if (!empty($settings['globalStoragePid']))
-        {
+        if (!empty($settings['globalStoragePid'])) {
             \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(
                 'module.tx_teasermanager_web_teasermanageradmin.persistence.storagePid = ' . $settings['globalStoragePid'] . '
                 plugin.tx_teasermanager.persistence.storagePid = ' . $settings['globalStoragePid']

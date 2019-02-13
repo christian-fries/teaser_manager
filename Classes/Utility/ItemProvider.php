@@ -1,4 +1,5 @@
 <?php
+
 namespace CHF\TeaserManager\Utility;
 
 /***
@@ -15,7 +16,6 @@ namespace CHF\TeaserManager\Utility;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-
 
 class ItemProvider implements SingletonInterface
 {

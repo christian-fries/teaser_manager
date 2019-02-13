@@ -56,10 +56,10 @@ $teaser_columns = [
     ],
 ];
 
-$GLOBALS['TCA']['tt_content']['palettes']['teaser_type_palette'] = array(
+$GLOBALS['TCA']['tt_content']['palettes']['teaser_type_palette'] = [
     'showitem' => 'teaser_type, teaser_layout, --linebreak--, teaser_items',
     'canNotCollapse' => 1
-);
+];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $teaser_columns);
 
