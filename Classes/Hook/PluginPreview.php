@@ -15,6 +15,8 @@ namespace CHF\TeaserManager\Hook;
 
 use TYPO3\CMS\Backend\View\PageLayoutView;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
@@ -79,18 +81,16 @@ class PluginPreview implements PageLayoutViewDrawItemHookInterface
      */
     private function readTeaserType($teaserType)
     {
-        $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
-            'title',
-            'tx_teasermanager_domain_model_teasertype',
-            'uid = ' . $teaserType,
-            $groupBy = '',
-            $orderBy = '',
-            $limit = ''
-        );
-        while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
-            $teaserType = $row['title'];
-        }
-        return $teaserType;
+        /** @var QueryBuilder $queryBuilder */
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_teasermanager_domain_model_teasertype');
+        $result = $queryBuilder
+            ->select('title')
+            ->from('tx_teasermanager_domain_model_teasertype')
+            ->where($queryBuilder->expr()->eq('uid', $teaserType))
+            ->execute()
+            ->fetch();
+
+        return $result['title'];
     }
 
     /**
@@ -100,20 +100,32 @@ class PluginPreview implements PageLayoutViewDrawItemHookInterface
     private function readSelectedTeasers($contentElement)
     {
         $teasers = [];
-        $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
-            'teaser.title, teaser.name',
-            'tx_teasermanager_domain_model_teaser AS teaser, tx_teasermanager_ttcontent_teaser_mm AS mm',
-            'mm.uid_local = ' . $contentElement . ' AND mm.uid_foreign = teaser.uid',
-            $groupBy = '',
-            $orderBy = '',
-            $limit = ''
-        );
-        while ($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
+
+        /** @var QueryBuilder $queryBuilder */
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_teasermanager_domain_model_teasertype');
+        $statement = $queryBuilder
+            ->select('title', 'name')
+            ->from('tx_teasermanager_domain_model_teaser', 'teaser')
+            ->join(
+                'teaser',
+                'tx_teasermanager_ttcontent_teaser_mm',
+                'mm',
+                $queryBuilder->expr()->eq(
+                    'mm.uid_foreign',
+                    $queryBuilder->quoteIdentifier('teaser.uid')
+                )
+            )
+            ->where($queryBuilder->expr()->eq('mm.uid_local', $contentElement))
+            ->execute()
+        ;
+
+        while ($row = $statement->fetch()) {
             $teasers[] = [
                 'title' => $row['title'],
                 'name' => $row['name'],
             ];
         }
+
         return $teasers;
     }
 }

@@ -13,7 +13,9 @@ namespace CHF\TeaserManager\Matcher;
  *
  ***/
 
-use TYPO3\CMS\Core\Database\DatabaseConnection;
+use TYPO3\CMS\Core\Database\Connection;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Decide whether or not to display a field based on the selected teaser type
@@ -21,13 +23,14 @@ use TYPO3\CMS\Core\Database\DatabaseConnection;
 class DisplayConditionMatcher
 {
     /**
-     * @var DatabaseConnection
+     * @var Connection
      */
-    protected $databaseConnection;
+    protected $connection;
 
     public function __construct()
     {
-        $this->databaseConnection = $GLOBALS['TYPO3_DB'];
+        $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
+        $this->connection = $connectionPool->getConnectionForTable('tx_teasermanager_domain_model_teasertype');
     }
 
     /**
@@ -40,11 +43,14 @@ class DisplayConditionMatcher
         $fieldName = $params['conditionParameters'][0];
         $teaserTypeId = (int) $params['record']['type'][0];
 
-        $result = $this->databaseConnection->exec_SELECTgetSingleRow(
-            'fields',
-            'tx_teasermanager_domain_model_teasertype',
-            'uid = ' . $teaserTypeId
-        );
+        $queryBuilder = $this->connection->createQueryBuilder();
+        $result = $queryBuilder
+            ->select('fields')
+            ->from('tx_teasermanager_domain_model_teasertype')
+            ->where($queryBuilder->expr()->eq('uid', $teaserTypeId))
+            ->execute()
+            ->fetch()
+        ;
 
         $fieldNamesToDisplay = explode(',', $result['fields']);
         if (in_array($fieldName, $fieldNamesToDisplay)) {

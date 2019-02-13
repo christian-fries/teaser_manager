@@ -17,6 +17,7 @@ The property `size` works the same way.
 ## Change log
 
 ### dev-master
+- Migrate database requests to doctrine
 - Remove configuration button in backend module
 - Adjust file extension for typoscript and tsconfig files
 
