@@ -9,5 +9,5 @@ mod.wizards.newContentElement.wizardItems.common {
 			}
 		}
 	}
+	show := addToList(teaser)
 }
-mod.wizards.newContentElement.wizardItems.common.show := addToList(teaser)

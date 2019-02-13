@@ -16,6 +16,9 @@ The property `size` works the same way.
 
 ## Change log
 
+### dev-master
+- Adjust file extension for typoscript and tsconfig files
+
 ### 1.7.1
 - Plugin preview not working in TYPO3 9 LTS
 
