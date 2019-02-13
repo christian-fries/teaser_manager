@@ -14,7 +14,10 @@ namespace CHF\TeaserManager\Controller;
  ***/
 
 use CHF\BackendModule\Controller\BackendModuleActionController;
+use CHF\BackendModule\Domain\Session\BackendSession;
 use CHF\TeaserManager\Domain\Dto\Filter;
+use CHF\TeaserManager\Domain\Repository\TeaserRepository;
+use CHF\TeaserManager\Domain\Repository\TeaserTypeRepository;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -23,22 +26,34 @@ use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 class AdminController extends BackendModuleActionController
 {
     /**
-     * @var \CHF\TeaserManager\Domain\Repository\TeaserTypeRepository
-     * @inject
+     * @var \CHF\BackendModule\Domain\Session\BackendSession
      */
-    protected $teaserTypeRepository = null;
+    protected $backendSession = null;
 
     /**
      * @var \CHF\TeaserManager\Domain\Repository\TeaserRepository
-     * @inject
      */
     protected $teaserRepository = null;
 
     /**
-     * @var \CHF\BackendModule\Domain\Session\BackendSession
-     * @inject
+     * @var \CHF\TeaserManager\Domain\Repository\TeaserTypeRepository
      */
-    protected $backendSession = null;
+    protected $teaserTypeRepository = null;
+
+    public function injectBackendSession(BackendSession $backendSession)
+    {
+        $this->backendSession = $backendSession;
+    }
+
+    public function injectTeaserTypeRepository(TeaserTypeRepository $teaserTypeRepository)
+    {
+        $this->teaserTypeRepository = $teaserTypeRepository;
+    }
+
+    public function injectTeaserRepository(TeaserRepository $teaserRepository)
+    {
+        $this->teaserRepository = $teaserRepository;
+    }
 
     /**
      * Set up the doc header properly here

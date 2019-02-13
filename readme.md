@@ -18,6 +18,7 @@ The property `size` works the same way.
 
 ### dev-master
 - Migrate database requests to doctrine
+- Use inject methods instead of annotations
 - Remove configuration button in backend module
 - Adjust file extension for typoscript and tsconfig files
 
