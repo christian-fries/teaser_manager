@@ -22,6 +22,7 @@ call_user_func(
                         'icon'   => 'EXT:' . $extKey . '/Resources/Public/Icons/teaser_manager.svg',
                         'labels' => 'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang_admin.xlf',
                         'navigationComponentId' => $navigationComponent,
+                        'inheritNavigationComponentFromMainModule' => false,
                     ]
                 );
             }
