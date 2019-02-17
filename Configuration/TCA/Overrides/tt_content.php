@@ -31,7 +31,6 @@ $teaser_columns = [
             'foreign_table' => 'tx_teasermanager_domain_model_teaserlayout',
             'foreign_table_where' => ' AND tx_teasermanager_domain_model_teaserlayout.uid IN ' .
                 '(SELECT uid_foreign FROM tx_teasermanager_teasertype_teaserlayout_mm WHERE uid_local=###REC_FIELD_teaser_type###) ',
-            'MM' => 'tx_teasermanager_teasertype_teaserlayout_mm',
             'minitems' => 1,
             'maxitems' => 1,
             'disableNoMatchingValueElement' => 1,

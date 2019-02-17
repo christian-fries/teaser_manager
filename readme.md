@@ -23,6 +23,8 @@ The property `size` works the same way.
 - Add teaser layouts to backend module
 - Remove configuration button in backend module
 - Adjust file extension for typoscript and tsconfig files
+- [!!!] Don't store selected teaser layout in mm table
+    - Manually review and reset selected teaser layouts on tt_content elements
 
 ### 1.7.1
 - Plugin preview not working in TYPO3 9 LTS
