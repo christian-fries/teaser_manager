@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Teaser Manager',
-    'description' => 'Manage teaser in one place and use them wherever you want to.',
+    'description' => 'Manage teasers in one place and use them wherever you want to.',
     'category' => 'plugin',
     'author' => 'Christian Fries',
     'author_email' => 'hallo@christian-fries.ch',
@@ -18,6 +18,8 @@ $EM_CONF[$_EXTKEY] = [
         'suggests' => [],
     ],
     'autoload' => [
-        'classmap' => ['Classes']
+        'psr-4' => [
+            'CHF\\TeaserManager\\' => 'Classes',
+        ],
     ],
 ];
