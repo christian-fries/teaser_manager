@@ -54,7 +54,7 @@ class PluginPreview implements PageLayoutViewDrawItemHookInterface
         if ($row['CType'] === 'teasermanager_teaser') {
             $headerContent = '';
             $drawItem = false;
-            $itemContent = $this->getPluginInformation($row);
+            $itemContent = $parentObject->linkEditContent($this->getPluginInformation($row), $row);
         }
     }
 
