@@ -72,6 +72,20 @@
 				<source>Add new teaser</source>
 				<target>Neuen Teaser hinzufügen</target>
 			</trans-unit>
+			<trans-unit id="teaserlayout">
+				<source>Teaser Layout</source>
+			</trans-unit>
+			<trans-unit id="teaserlayout.teaserlayouts">
+				<source>Teaser Layouts</source>
+			</trans-unit>
+			<trans-unit id="teaserlayout.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="teaserlayout.new">
+				<source>Add new teaser layout</source>
+				<target>Neues Teaser Layout hinzufügen</target>
+			</trans-unit>
 			<trans-unit id="teasertype">
 				<source>Teaser Type</source>
 				<target>Teasertyp</target>
@@ -99,12 +113,10 @@
 				<source>All</source>
 				<target>Alle</target>
 			</trans-unit>
-
 			<trans-unit id="administration.toggleForm">
 				<source>Toggle filter</source>
 				<target>Filter anzeigen/verstecken</target>
 			</trans-unit>
-
 		</body>
 	</file>
 </xliff>

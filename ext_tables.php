@@ -15,7 +15,7 @@ call_user_func(
                     'admin', // Submodule key
                     '', // Position
                     [
-                        'Admin' => 'listTeaser, listTeaserType',
+                        'Admin' => 'listTeaser, listTeaserType, listTeaserLayout',
                     ],
                     [
                         'access' => 'user,group',

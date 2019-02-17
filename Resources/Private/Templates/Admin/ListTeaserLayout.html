@@ -1,0 +1,54 @@
+{namespace bm=CHF\BackendModule\ViewHelpers}
+
+<f:layout name="Backend"/>
+
+<f:section name="headline">
+    <h1>
+        <f:translate key="teaserlayout.teaserlayouts" />
+    </h1>
+</f:section>
+
+<f:section name="content">
+    <f:flashMessages/>
+
+    <div class="panel panel-space panel-default recordlist">
+        <div class="panel-heading">
+            <f:translate key="teaserlayout.teaserlayouts" />
+        </div>
+        <div class="table-fit">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th class="col-icon" width="35">
+                        <bm:button.addRecord table="tx_teasermanager_domain_model_teaserlayout" pid="{storagePid}" returnUrl="{returnUrl}"/>
+                    </th>
+                    <th>
+                        <f:translate key="teaserlayout.title"/>
+                    </th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <f:for each="{teaserLayouts}" as="teaserLayout" iteration="iterator">
+                    <tr class="t3js-entity{f:if(condition:iterator.isFirst, then:' firstcol', else:'')}" data-table="tx_teasermanager_domain_model_teaserlayout" data-uid="{teaserLayout.uid}">
+                        <td class="col-icon">
+                            <bm:button.iconForRecord table="tx_teasermanager_domain_model_teaserlayout" uid="{teaserLayout.uid}"/>
+                        </td>
+                        <td>
+                            <bm:link.editRecord object="{teaserLayout}" table="tx_teasermanager_domain_model_teaserlayout" returnUrl="{returnUrl}">{teaserLayout.title}
+                            </bm:link.editRecord>
+                        </td>
+                        <td class="col-control">
+                            <div class="btn-group" role="group">
+                                <bm:button.editRecord object="{teaserLayout}" table="tx_teasermanager_domain_model_teaserlayout" returnUrl="{returnUrl}"/>
+                                <bm:button.disableRecord object="{teaserLayout}" table="tx_teasermanager_domain_model_teaserlayout" returnUrl="{returnUrl}"/>
+                                <bm:button.removeRecord object="{teaserLayout}" table="tx_teasermanager_domain_model_teaserlayout"/>
+                            </div>
+                        </td>
+                    </tr>
+                </f:for>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</f:section>

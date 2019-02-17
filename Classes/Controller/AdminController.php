@@ -16,6 +16,7 @@ namespace CHF\TeaserManager\Controller;
 use CHF\BackendModule\Controller\BackendModuleActionController;
 use CHF\BackendModule\Domain\Session\BackendSession;
 use CHF\TeaserManager\Domain\Dto\Filter;
+use CHF\TeaserManager\Domain\Repository\TeaserLayoutRepository;
 use CHF\TeaserManager\Domain\Repository\TeaserRepository;
 use CHF\TeaserManager\Domain\Repository\TeaserTypeRepository;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
@@ -31,6 +32,11 @@ class AdminController extends BackendModuleActionController
     protected $backendSession = null;
 
     /**
+     * @var \CHF\TeaserManager\Domain\Repository\TeaserLayoutRepository
+     */
+    protected $teaserLayoutRepository = null;
+
+    /**
      * @var \CHF\TeaserManager\Domain\Repository\TeaserRepository
      */
     protected $teaserRepository = null;
@@ -43,6 +49,11 @@ class AdminController extends BackendModuleActionController
     public function injectBackendSession(BackendSession $backendSession)
     {
         $this->backendSession = $backendSession;
+    }
+
+    public function injectTeaserLayoutRepository(TeaserLayoutRepository $teaserLayoutRepository)
+    {
+        $this->teaserLayoutRepository = $teaserLayoutRepository;
     }
 
     public function injectTeaserTypeRepository(TeaserTypeRepository $teaserTypeRepository)
@@ -104,6 +115,14 @@ class AdminController extends BackendModuleActionController
                 'controller' => 'Admin'
             ];
         }
+
+        if (GeneralUtility::inList($this->getBackendUser()->groupData['tables_modify'], 'tx_teasermanager_domain_model_teaserlayout') || $this->getBackendUser()->isAdmin()) {
+            $menuItems[] = [
+                'label' => $this->getLanguageService()->sL('LLL:EXT:teaser_manager/Resources/Private/Language/locallang.xlf:teaserlayout.teaserlayouts'),
+                'action' => 'listTeaserLayout',
+                'controller' => 'Admin'
+            ];
+        }
         $this->setMenuItems($menuItems);
 
         // Define toolbar buttons
@@ -138,6 +157,17 @@ class AdminController extends BackendModuleActionController
                     'controller' => 'Admin'
                 ]
             ),
+            $this->createNewRecordButton(
+                'tx_teasermanager_domain_model_teaserlayout',
+                $this->getLanguageService()->sL('LLL:EXT:teaser_manager/Resources/Private/Language/locallang.xlf:teaserlayout.new'),
+                [
+                    'Admin' => ['listTeaserLayout']
+                ],
+                [
+                    'action' => 'listTeaserLayout',
+                    'controller' => 'Admin'
+                ]
+            ),
             $this->createClipboardButton('tx_teasermanager_domain_model_teaser')
         ];
         $this->setButtons($buttons);
@@ -150,6 +180,15 @@ class AdminController extends BackendModuleActionController
     {
         $teaserTypes = $this->teaserTypeRepository->findAll();
         $this->view->assign('teaserTypes', $teaserTypes);
+    }
+
+    /**
+     * @return void
+     */
+    public function listTeaserLayoutAction()
+    {
+        $teaserLayouts = $this->teaserLayoutRepository->findAll();
+        $this->view->assign('teaserLayouts', $teaserLayouts);
     }
 
     /**

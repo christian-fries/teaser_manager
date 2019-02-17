@@ -63,6 +63,18 @@
 			<trans-unit id="teaser.new">
 				<source>Add new teaser</source>
 			</trans-unit>
+			<trans-unit id="teaserlayout">
+				<source>Teaser Layout</source>
+			</trans-unit>
+			<trans-unit id="teaserlayout.teaserlayouts">
+				<source>Teaser Layouts</source>
+			</trans-unit>
+			<trans-unit id="teaserlayout.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="teaserlayout.new">
+				<source>Add new teaser layout</source>
+			</trans-unit>
 			<trans-unit id="teasertype">
 				<source>Teaser Type</source>
 			</trans-unit>

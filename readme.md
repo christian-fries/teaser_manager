@@ -20,6 +20,7 @@ The property `size` works the same way.
 - Use `lib.contentElement` instead of `lib.fluidContent`
 - Migrate database requests to doctrine
 - Use inject methods instead of annotations
+- Add teaser layouts to backend module
 - Remove configuration button in backend module
 - Adjust file extension for typoscript and tsconfig files
 
