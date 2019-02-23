@@ -35,7 +35,7 @@ Teaser Manager
 		Christian Fries
 
 	:Email:
-		hallo@christian-fries.ch
+		hello@christian-fries.ch
 
 	:License:
 		This document is published under the Open Content License

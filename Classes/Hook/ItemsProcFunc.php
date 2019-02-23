@@ -9,7 +9,7 @@ namespace CHF\TeaserManager\Hook;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- *  (c) 2018 Christian Fries <hallo@christian-fries.ch>, CF Webworks
+ *  (c) 2018 Christian Fries <hello@christian-fries.ch>, CF Webworks
  *
  ***/
 

@@ -2,6 +2,19 @@
 	"name": "chf/teaser-manager",
 	"type": "typo3-cms-extension",
 	"description": "TYPO3 Teaser Manager",
+	"keywords": [
+		"typo3",
+		"teaser",
+		"module"
+	],
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Christian Fries",
+			"email": "hello@christian-fries.ch",
+			"role": "Developer"
+		}
+	],
 	"require": {
 		"typo3/cms-core": "^8.7 || ^9.5",
 		"chf/backend-module": ">=0.7.1"
