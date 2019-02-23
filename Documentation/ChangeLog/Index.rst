@@ -11,10 +11,10 @@
 ChangeLog
 =========
 
-Version 2.0.0-dev
+Version 2.0.0 (2019-02-23)
 -----------------
 
-* Support TYPO3 8 and 9
+* Support TYPO3 8 LTS and TYPO3 9 LTS
 * Use doctrine for database requests
 * Use inject methods instead of annotations
 * Use `.typoscript` and `.tsconfig` file extensions
