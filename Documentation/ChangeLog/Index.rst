@@ -11,8 +11,13 @@
 ChangeLog
 =========
 
+dev-master
+##########
+
+* Don't lazy load relations of teaser
+
 Version 2.0.0 (2019-02-23)
------------------
+##########################
 
 * Support TYPO3 8 LTS and TYPO3 9 LTS
 * Use doctrine for database requests
