@@ -54,6 +54,9 @@
 			<trans-unit id="teaser.size">
 				<source>Size</source>
 			</trans-unit>
+			<trans-unit id="teaser.style">
+				<source>Style</source>
+			</trans-unit>
 			<trans-unit id="teaser.color">
 				<source>Color</source>
 			</trans-unit>

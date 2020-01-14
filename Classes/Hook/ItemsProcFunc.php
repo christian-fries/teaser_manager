@@ -67,4 +67,24 @@ class ItemsProcFunc
             array_push($config['items'], $sizes);
         }
     }
+
+    /**
+     * Itemsproc function to provide styles to the style selector
+     *
+     * @param array &$config configuration array
+     */
+    public function style(array &$config)
+    {
+        $pageId = $config['row']['pid'];
+        $pluginName = 'tx_teasermanager.';
+        $items = $this->itemProvider->getAvailableItems($pageId, 'style', $pluginName);
+
+        foreach ($items as $style) {
+            $styles = [
+                htmlspecialchars($style[0]),
+                $style[1]
+            ];
+            array_push($config['items'], $styles);
+        }
+    }
 }

@@ -60,6 +60,10 @@
 				<source>Size</source>
 				<target>Grösse</target>
 			</trans-unit>
+			<trans-unit id="teaser.style">
+				<source>Style</source>
+				<target>Stil</target>
+			</trans-unit>
 			<trans-unit id="teaser.color">
 				<source>Color</source>
 				<target>Farbe</target>

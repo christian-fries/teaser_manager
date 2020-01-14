@@ -13,6 +13,7 @@ namespace CHF\TeaserManager\Domain\Model;
  *
  ***/
 
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
@@ -69,11 +70,15 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @var \LST\People\Domain\Model\Person
+     * @Extbase\ORM\Lazy
+     * @lazy
      */
     protected $person = null;
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\LST\People\Domain\Model\Person>
+     * @Extbase\ORM\Lazy
+     * @lazy
      */
     protected $persons = null;
 
@@ -94,13 +99,22 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     /**
      * @var \CHF\ColorManager\Domain\Model\Color
+     * @Extbase\ORM\Lazy
+     * @lazy
      */
     protected $color = null;
 
     /**
      * @var \CHF\TeaserManager\Domain\Model\TeaserType
+     * @Extbase\ORM\Lazy
+     * @lazy
      */
     protected $type = null;
+
+    /**
+     * @var string
+     */
+    protected $style = '';
 
     public function __construct()
     {
@@ -383,5 +397,21 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setColor($color)
     {
         $this->color = $color;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStyle()
+    {
+        return $this->style;
+    }
+
+    /**
+     * @param string $style
+     */
+    public function setStyle($style)
+    {
+        $this->style = $style;
     }
 }

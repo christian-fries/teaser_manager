@@ -21,19 +21,19 @@ return [
             'endtime' => 'endtime',
         ],
         'requestUpdate' => 'type',
-        'searchFields' => 'name, title,subtitle,link,text,date,icon,selected_icon,image,type,',
+        'searchFields' => 'name, title,subtitle,link,text,date,icon,selected_icon,style,image,type,',
         'iconfile' => 'EXT:teaser_manager/Resources/Public/Icons/tx_teasermanager_domain_model_teaser.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, title, subtitle, link, link_text, text, date, icon, selected_icon, image, images, size, type',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, title, subtitle, link, link_text, text, date, icon, selected_icon, style, image, images, size, type',
     ],
     'types' => [
-        '1' => ['showitem' => 'type, name, title, subtitle, link_text, link, text, date, icon, selected_icon, image, images, size, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'type, name, title, subtitle, link_text, link, text, date, icon, selected_icon, style, image, images, size, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.language',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -43,7 +43,7 @@ return [
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -59,28 +59,17 @@ return [
                 'type' => 'passthrough',
             ],
         ],
-        't3ver_label' => [
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
-            'config' => [
-                'type' => 'input',
-                'size' => 30,
-            ],
-        ],
         'hidden' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
-                'items' => [
-                    '1' => [
-                        '0' => 'LLL:EXT:lang/locallang_core.xlf:labels.enabled'
-                    ]
-                ],
+                'default' => 0,
             ],
         ],
         'starttime' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
+            'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel',
             'config' => [
                 'type' => 'input',
                 'size' => 13,
@@ -97,7 +86,7 @@ return [
         ],
         'endtime' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
+            'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
             'config' => [
                 'type' => 'input',
                 'size' => 13,
@@ -169,7 +158,7 @@ return [
                 'wizards' => [
                     'link' => [
                         'type' => 'popup',
-                        'title' => 'LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.link',
+                        'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.link',
                         'icon' => 'actions-wizard-link',
                         'module' => [
                             'name' => 'wizard_link',
@@ -226,6 +215,19 @@ return [
                     ['', '']
                 ],
                 'itemsProcFunc' => 'CHF\TeaserManager\Hook\ItemsProcFunc->icons'
+            ],
+
+        ],
+        'style' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.style',
+            'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:style',
+            'config' => [
+                'type' => 'select',
+                'items' => [
+                    ['', '']
+                ],
+                'itemsProcFunc' => 'CHF\TeaserManager\Hook\ItemsProcFunc->style'
             ],
 
         ],

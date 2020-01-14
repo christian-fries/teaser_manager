@@ -16,6 +16,7 @@ CREATE TABLE tx_teasermanager_domain_model_teaser (
 	color int(11) unsigned DEFAULT '0' NOT NULL,
 	icon varchar(255) DEFAULT '' NOT NULL,
 	selected_icon varchar(255) DEFAULT '' NOT NULL,
+	style varchar(255) DEFAULT '' NOT NULL,
 	person int(11) unsigned DEFAULT '0' NOT NULL,
 	persons int(11) unsigned DEFAULT '0' NOT NULL,
 	image int(11) unsigned NOT NULL default '0',

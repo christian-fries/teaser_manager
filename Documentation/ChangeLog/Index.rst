@@ -11,10 +11,11 @@
 ChangeLog
 =========
 
-dev-master
-##########
+Version 2.0.1 (2019-12-18)
+##########################
 
 * Don't lazy load relations of teaser
+* Adjust core-labels for TYPO3 9
 
 Version 2.0.0 (2019-02-23)
 ##########################

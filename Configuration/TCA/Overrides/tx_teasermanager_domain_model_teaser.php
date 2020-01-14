@@ -13,7 +13,7 @@ if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(
     $GLOBALS['TCA']['tx_teasermanager_domain_model_teaser']['columns']['link']['config']['fieldControl'] = [
         'linkPopup' => [
             'options' => [
-                'title' => 'LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.link',
+                'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.link',
                 'windowOpenParameters' => 'width=800,height=600,status=0,menubar=0,scrollbars=1'
             ]
         ]

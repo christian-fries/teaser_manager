@@ -69,6 +69,10 @@
 				<source>Size</source>
 				<target>Grösse</target>
 			</trans-unit>
+			<trans-unit id="teaser.style">
+				<source>Style</source>
+				<target>Stil</target>
+			</trans-unit>
 			<trans-unit id="teaser.type">
 				<source>Type</source>
 				<target>Typ</target>

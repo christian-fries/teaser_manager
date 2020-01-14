@@ -14,6 +14,7 @@ $fieldItems = [
     ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.image', 'image'],
     ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.images', 'images'],
     ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.size', 'size'],
+    ['LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teaser.style', 'style'],
 ];
 
 // Add field 'color' if extension color_manager is loaded
