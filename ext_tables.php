@@ -43,5 +43,5 @@ call_user_func(
             );
         }
     },
-    $_EXTKEY
+    'teaser_manager'
 );
