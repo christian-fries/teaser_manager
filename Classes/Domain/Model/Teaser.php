@@ -71,14 +71,12 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @var \LST\People\Domain\Model\Person
      * @Extbase\ORM\Lazy
-     * @lazy
      */
     protected $person = null;
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\LST\People\Domain\Model\Person>
      * @Extbase\ORM\Lazy
-     * @lazy
      */
     protected $persons = null;
 
@@ -100,14 +98,12 @@ class Teaser extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @var \CHF\ColorManager\Domain\Model\Color
      * @Extbase\ORM\Lazy
-     * @lazy
      */
     protected $color = null;
 
     /**
      * @var \CHF\TeaserManager\Domain\Model\TeaserType
      * @Extbase\ORM\Lazy
-     * @lazy
      */
     protected $type = null;
 
