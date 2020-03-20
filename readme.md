@@ -12,4 +12,4 @@ This extension requires [EXT:backend_module](https://github.com/christian-fries/
 
 ## Supported versions
 
-This extension supports TYPO3 8 LTS and TYPO3 9 LTS.
+This extension supports TYPO3 9 LTS and TYPO3 10 LTS.

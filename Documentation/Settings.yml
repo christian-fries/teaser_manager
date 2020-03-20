@@ -10,8 +10,8 @@
 conf.py:
   copyright: 2020
   project: Teaser Manager
-  version: 2.0
-  release: 2.0.2
+  version: 3.0-dev
+  release: 3.0.0-dev
   intersphinx_mapping:
     t3tsref:
     - http://docs.typo3.org/typo3cms/TyposcriptReference/

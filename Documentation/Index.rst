@@ -29,7 +29,7 @@ Teaser Manager
 		teaser
 
 	:Copyright:
-		2016 - 2019
+		2016 - 2020
 
 	:Author:
 		Christian Fries
