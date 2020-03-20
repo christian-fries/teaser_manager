@@ -13,6 +13,7 @@ namespace CHF\TeaserManager\DataProcessing;
  *
  ***/
 
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
@@ -39,7 +40,7 @@ class TeaserProcessor implements DataProcessorInterface
     public function __construct()
     {
         $this->contentDataProcessor = GeneralUtility::makeInstance(ContentDataProcessor::class);
-        $this->extensionSettings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['teaser_manager']);
+        $this->extensionSettings = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('teaser_manager');
     }
 
     /**

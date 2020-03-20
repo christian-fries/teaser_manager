@@ -4,7 +4,7 @@ defined('TYPO3_MODE') || die('Access denied.');
 call_user_func(
     function ($extKey) {
         // Load extension configuration
-        $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['teaser_manager']);
+        $settings = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)->get('teaser_manager');
         $navigationComponent = (!$settings['globalStoragePid']) ? 'typo3-pagetree' : '';
 
         if (TYPO3_MODE === 'BE') {

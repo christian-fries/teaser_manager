@@ -20,6 +20,7 @@ use CHF\TeaserManager\Domain\Repository\TeaserLayoutRepository;
 use CHF\TeaserManager\Domain\Repository\TeaserRepository;
 use CHF\TeaserManager\Domain\Repository\TeaserTypeRepository;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
@@ -93,7 +94,7 @@ class AdminController extends BackendModuleActionController
 
         $this->backendSession->setStorageKey('teaser_manager');
 
-        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['teaser_manager']);
+        $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get($this->extKey);
         $this->pageUid = intval($extConf['globalStoragePid']);
 
         parent::initializeAction();
