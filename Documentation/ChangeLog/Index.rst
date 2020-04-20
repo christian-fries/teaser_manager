@@ -11,10 +11,15 @@
 ChangeLog
 =========
 
-Version dev-master
-##################
+Version 3.0.0-dev
+#################
 
 * Add support for TYPO3 10 and drop support for TYPO3 8
+
+Version 2.0.2 (2020-01-14)
+##########################
+
+* Add new teaser field `style`
 
 Version 2.0.1 (2019-12-18)
 ##########################
