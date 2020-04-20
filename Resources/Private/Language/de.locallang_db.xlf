@@ -96,6 +96,14 @@
 			<trans-unit id="teasertype.layouts">
 				<source>Layouts</source>
 			</trans-unit>
+			<trans-unit id="teasertype.layouts.add">
+				<source>Add layout</source>
+				<target>Layout hinzufügen</target>
+			</trans-unit>
+			<trans-unit id="teasertype.layouts.edit">
+				<source>Edit layout</source>
+				<target>Layout bearbeiten</target>
+			</trans-unit>
 			<trans-unit id="teaserlayout">
 				<source>Teaser Layout</source>
 				<target>Teaser Layout</target>

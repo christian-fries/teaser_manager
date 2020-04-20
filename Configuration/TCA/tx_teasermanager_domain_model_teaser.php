@@ -8,7 +8,6 @@ return [
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
-        'dividers2tabs' => 1,
         'versioningWS' => true,
 
         'languageField' => 'sys_language_uid',
@@ -20,7 +19,6 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'requestUpdate' => 'type',
         'searchFields' => 'name, title,subtitle,link,text,date,icon,selected_icon,style,image,type,',
         'iconfile' => 'EXT:teaser_manager/Resources/Public/Icons/tx_teasermanager_domain_model_teaser.gif'
     ],
@@ -211,6 +209,7 @@ return [
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:selected_icon',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['', '']
                 ],
@@ -224,6 +223,7 @@ return [
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:style',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [
                     ['', '']
                 ],
@@ -333,6 +333,7 @@ return [
             'displayCond' => 'USER:CHF\TeaserManager\Matcher\DisplayConditionMatcher->checkTeaserField:size',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'items' => [],
                 'itemsProcFunc' => 'CHF\TeaserManager\Hook\ItemsProcFunc->sizes'
             ],

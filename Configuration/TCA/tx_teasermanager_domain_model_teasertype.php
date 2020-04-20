@@ -30,7 +30,6 @@ return [
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
-        'dividers2tabs' => 1,
         'delete' => 'deleted',
         'searchFields' => 'title,',
         'iconfile' => 'EXT:teaser_manager/Resources/Public/Icons/tx_teasermanager_domain_model_teasertype.gif'
@@ -79,33 +78,22 @@ return [
                 'maxitems' => 9999,
                 'multiple' => 0,
                 'enableMultiSelectFilterTextfield' => true,
-                'wizards' => [
-                    '_VERTICAL' => 1,
-                    'edit' => [
-                        'type' => 'popup',
-                        'title' => 'Edit layout',
-                        'module' => [
-                            'name' => 'wizard_edit',
-                        ],
-                        'popup_onlyOpenIfSelected' => 1,
-                        'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_edit.gif',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1'
-                    ],
-                    'add' => [
-                        'type' => 'script',
-                        'title' => 'Add layout',
-                        'icon' => 'EXT:backend/Resources/Public/Images/FormFieldWizard/wizard_add.gif',
-                        'params' => [
-                            'table' => 'tx_teasermanager_domain_model_teaserlayout',
+                'fieldControl' => [
+                    'addRecord' => [
+                        'disabled' => false,
+                        'options' => [
+                            'title' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teasertype.layouts.add',
                             'pid' => '###CURRENT_PID###',
-                            'setValue' => 'prepend'
+                            'table' => 'tx_teasermanager_domain_model_teaserlayout',
                         ],
-                        'module' => [
-                            'name' => 'wizard_add'
-                        ]
-                    ]
-                ]
-
+                    ],
+                    'editPopup' => [
+                        'disabled' => false,
+                        'options' => [
+                            'title' => 'LLL:EXT:teaser_manager/Resources/Private/Language/locallang_db.xlf:teasertype.layouts.edit',
+                        ],
+                    ],
+                ],
             ],
         ],
     ],
