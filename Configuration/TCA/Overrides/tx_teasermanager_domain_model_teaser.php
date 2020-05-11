@@ -159,7 +159,7 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('people')) {
                 'foreign_table' => 'tx_people_domain_model_person',
                 'foreign_table_where' => 'AND tx_people_domain_model_person.sys_language_uid IN (-1,0)',
                 'MM' => 'tx_teasermanager_teasertype_teaserlayout_mm',
-                'default' => ''
+                'default' => '0'
             ]
         ]
     ];
