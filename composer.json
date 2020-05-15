@@ -16,7 +16,7 @@
 		}
 	],
 	"require": {
-		"typo3/cms-core": "^9.5 || ^10.3",
+		"typo3/cms-core": "~9.5.17 || ~10.4.2",
 		"chf/backend-module": "^1.0"
 	},
 	"autoload": {
