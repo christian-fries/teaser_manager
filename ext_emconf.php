@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['teaser_manager'] = [
     'title' => 'Teaser Manager',
     'description' => 'Manage teasers in one place and use them wherever you want to.',
     'category' => 'plugin',
